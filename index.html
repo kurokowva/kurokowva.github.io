@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kuroko_W (Uriel Pérez Ochoa) | Voice Over</title>
+<title>Uriel | Voice Over</title>
 <meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano. Demo, trabajos y contacto.">
-<meta property="og:title" content="Kuroko_W | Voice Actor">
+<meta property="og:title" content="Uriel | Voice Over">
 <meta property="og:image" content="avatar.png">
 <link rel="icon" href="avatar.png">
 <style>
@@ -69,6 +69,9 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
 #boot.out{display:none}
 #boot pre{margin:0 0 18px;color:var(--ok);white-space:pre-wrap;min-height:6.5em}
 #boot .row{display:flex;gap:10px;flex-wrap:wrap}
+.lofiFrame{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.lofiFrame iframe{width:1px;height:1px;border:0}
+#lofiPlay,#lofiPause{min-width:120px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -83,11 +86,11 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
 <div class="bar"><span>C:\kuroko_w\portafolio</span><span><button class="btn" id="mute" aria-pressed="false">sonido: on</button></span></div>
 
 <main>
-  <section class="win wide" id="hero"><div class="tb"><span>kuroko_w.exe</span><button aria-label="minimizar">_</button></div>
+  <section class="win wide" id="hero"><div class="tb"><span>uriel.exe</span><button aria-label="minimizar">_</button></div>
     <div class="body who">
       <img class="pfp" id="pfp" src="avatar.png" alt="Avatar de Kuroko_W: hombre de cabello rizado con audífonos, en estilo pixel art rojo y negro" width="200" height="200">
-      <div><h1>Kuroko<b>_W</b></h1>
-        <p class="sub">Uriel Pérez Ochoa · voice over · español mexicano / latinoamericano</p>
+      <div><h1>Uriel</h1>
+        <p class="sub">voice over · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
         <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a></div>
     </div></section>
@@ -99,6 +102,23 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
       <div class="prog" id="pg" role="progressbar" aria-label="Progreso del demo"><div id="pb"></div></div>
       <p class="note" id="dn">Pulsa play. El sonido nunca arranca solo.</p>
       <p class="note"><a href="demo.wav" download>descargar demo</a></p>
+    </div></section>
+
+  <section class="win" id="musica"><div class="tb"><span>background_lofi.exe</span><button aria-label="minimizar">_</button></div>
+    <div class="body">
+      <div class="player">
+        <button class="btn" id="lofiPlay" aria-label="Reproducir música de fondo">▶ reproducir</button>
+        <button class="btn" id="lofiPause" aria-label="Pausar música de fondo">❚❚ pausar</button>
+        <span class="note" id="lofiStatus">Lofi Girl · música de fondo</span>
+      </div>
+      <div class="lofiFrame">
+        <iframe id="lofiPlayer"
+          src="https://www.youtube.com/embed/X4VbdwhkE10?enablejsapi=1"
+          title="Lofi Girl - lofi hip hop radio"
+          allow="autoplay; encrypted-media"
+          loading="lazy"></iframe>
+      </div>
+      <p class="note">La música no se reproduce automáticamente. Pulsa reproducir cuando quieras.</p>
     </div></section>
 
   <section class="win" id="contacto"><div class="tb"><span>contacto.txt</span><button aria-label="minimizar">_</button></div>
@@ -141,7 +161,7 @@ const CFG = {
   ],
   // Redes y formas de contacto
   links: [
-    { label: "Casting Call Club", url: "https://www.castingcall.club/m/kuroko_w" },
+    { label: "CCC", url: "https://www.castingcall.club/m/kuroko_w" },
     { label: "TikTok", url: "https://www.tiktok.com/@shoukoowo" },
     { label: "Discord", url: "", text: "@kuroko__w" }
   ]
@@ -234,6 +254,29 @@ function renderWorks() {
   });
 }
 renderWorks();
+
+/* Música de fondo: reproductor oficial de YouTube / Lofi Girl */
+let lofiReady = false, lofiPlayer = null;
+window.onYouTubeIframeAPIReady = () => {
+  lofiPlayer = new YT.Player("lofiPlayer", {
+    events: { onReady: () => { lofiReady = true; } }
+  });
+};
+const yts = document.createElement("script");
+yts.src = "https://www.youtube.com/iframe_api";
+document.head.appendChild(yts);
+$("#lofiPlay").onclick = () => {
+  if (lofiPlayer && lofiReady) {
+    lofiPlayer.playVideo();
+    $("#lofiStatus").textContent = "Lofi Girl · reproduciendo";
+  }
+};
+$("#lofiPause").onclick = () => {
+  if (lofiPlayer && lofiReady) {
+    lofiPlayer.pauseVideo();
+    $("#lofiStatus").textContent = "Lofi Girl · pausado";
+  }
+};
 
 /* Setup y redes */
 CFG.setup.forEach(([k, v]) => { const li = document.createElement("li"); const a = document.createElement("span"), b = document.createElement("span"); a.textContent = k; b.textContent = v; b.style.color = "var(--mute)"; li.append(a, b); $("#st").append(li); });
