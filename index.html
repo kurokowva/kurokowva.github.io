@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kuroko_W (Uriel Pérez Ochoa) | Voice Actor</title>
 <meta name="description" content="Kuroko_W, voice actor freelance. Demo, trabajos y contacto.">
+<title>Kuroko_W (Uriel Pérez Ochoa) | Voice Over</title>
+<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano. Demo, trabajos y contacto.">
 <meta property="og:title" content="Kuroko_W | Voice Actor">
 <meta property="og:image" content="avatar.png">
 <link rel="icon" href="avatar.png">
@@ -79,7 +80,7 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
   <div class="row"><button class="btn" id="ys">entrar con sonido</button><button class="btn" id="ns">entrar sin sonido</button></div></div>
 </div>
 
-<div class="ticker" aria-hidden="true"><span>kuroko_w // voice actor // freelance // escríbeme para audiciones y proyectos // kuroko_w // voice actor //</span></div>
+<div class="ticker" aria-hidden="true"><span>kuroko_w // voice over // español mexicano / latinoamericano // freelance // audiciones y proyectos // kuroko_w //</span></div>
 <div class="bar"><span>C:\kuroko_w\portafolio</span><span><button class="btn" id="mute" aria-pressed="false">sonido: on</button></span></div>
 
 <main>
@@ -87,18 +88,18 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
     <div class="body who">
       <img class="pfp" id="pfp" src="avatar.png" alt="Avatar de Kuroko_W: hombre de cabello rizado con audífonos, en estilo pixel art rojo y negro" width="200" height="200">
       <div><h1>Kuroko<b>_W</b></h1>
-        <p class="sub">Uriel Pérez Ochoa · voice actor</p>
+        <p class="sub">Uriel Pérez Ochoa · voice over · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
         <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a></div>
     </div></section>
 
-  <section class="win" id="demo"><div class="tb"><span>demo.mp3</span><button aria-label="minimizar">_</button></div>
+  <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
     <div class="body">
-      <audio id="au" src="demo.mp3" preload="none"></audio>
+      <audio id="au" src="demo.wav" preload="none"></audio>
       <div class="player" id="pl"><button class="btn" id="pp" aria-label="Reproducir demo">▶ play</button><div class="wave" aria-hidden="true"></div></div>
       <div class="prog" id="pg" role="progressbar" aria-label="Progreso del demo"><div id="pb"></div></div>
       <p class="note" id="dn">Pulsa play. El sonido nunca arranca solo.</p>
-      <p class="note"><a href="demo.mp3" download>descargar demo</a></p>
+      <p class="note"><a href="demo.wav" download>descargar demo</a></p>
     </div></section>
 
   <section class="win" id="contacto"><div class="tb"><span>contacto.txt</span><button aria-label="minimizar">_</button></div>
@@ -120,18 +121,30 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
 <script>
 /* ============ EDITA AQUÍ ============ */
 const CFG = {
-  email: "vaupo@gmail.com",              // cambia si usas otro correo
-  typed: ["voice actor", "freelance", "escríbeme: audiciones y proyectos"],
-  // Trabajos: agrega uno por línea. type = categoría para el filtro (ej. "Juego", "Animación", "Comercial")
-  works: [
-    // { title: "Nombre del proyecto", role: "Personaje", type: "Juego", url: "https://..." },
+  email: "kurokow.va@gmail.com",
+  typed: [
+    "voice over en español mexicano / latinoamericano",
+    "inglés con estilo spanglish",
+    "audiciones, proyectos y sesiones en vivo"
   ],
-  // Setup: solo lo que realmente tengas
-  setup: [["Micrófono", "por completar"], ["Interfaz de audio", "por completar"], ["Cabina / acústica", "por completar"], ["Sesiones en vivo", "por completar"]],
-  // Redes: deja url vacía para ocultar
+  // Trabajos y demos de voz
+  works: [
+    { title: "Comic Dub Demo", role: "Voice Over", type: "Demo", url: "democomicdub.wav" }
+  ],
+  // Equipo y condiciones de trabajo
+  setup: [
+    ["Micrófono", "BY-M1 Pro II"],
+    ["DAW / procesamiento", "FL Studio"],
+    ["Cabina / acústica", "Cabina casera, rústica y lista para trabajar"],
+    ["Sesiones en vivo", "Discord · Casting Call Club · correo electrónico"],
+    ["Voz / idioma", "Español mexicano · Latinoamérica"],
+    ["Inglés", "Spanglish / uso conversacional"]
+  ],
+  // Redes y formas de contacto
   links: [
-    { label: "YouTube", url: "" }, { label: "Instagram", url: "" }, { label: "TikTok", url: "" },
-    { label: "X", url: "" }, { label: "Twitch", url: "" }, { label: "LinkedIn", url: "" }
+    { label: "Casting Call Club", url: "https://www.castingcall.club/m/kuroko_w" },
+    { label: "TikTok", url: "https://www.tiktok.com/@shoukoowo" },
+    { label: "Discord", url: "", text: "@kuroko__w" }
   ]
 };
 /* ================================== */
@@ -197,7 +210,7 @@ au.onplay = () => { $("#pl").classList.add("playing"); pp.textContent = "❚❚ 
 au.onpause = au.onended = () => { $("#pl").classList.remove("playing"); pp.textContent = "▶ play"; pp.setAttribute("aria-label", "Reproducir demo"); };
 au.ontimeupdate = () => { $("#pb").style.width = (au.currentTime / (au.duration || 1) * 100) + "%"; };
 $("#pg").onclick = e => { if (au.duration) au.currentTime = e.offsetX / e.currentTarget.clientWidth * au.duration; };
-au.onerror = () => { $("#dn").textContent = "No se encontró demo.mp3. Sube tu archivo con ese nombre junto a index.html."; };
+au.onerror = () => { $("#dn").textContent = "No se encontró demo.wav. Sube tu archivo con ese nombre junto a index.html."; };
 $(".wave").innerHTML = "<i></i>".repeat(28);
 
 /* Contacto */
@@ -225,9 +238,19 @@ renderWorks();
 
 /* Setup y redes */
 CFG.setup.forEach(([k, v]) => { const li = document.createElement("li"); const a = document.createElement("span"), b = document.createElement("span"); a.textContent = k; b.textContent = v; b.style.color = "var(--mute)"; li.append(a, b); $("#st").append(li); });
-const ls = CFG.links.filter(l => l.url);
+const ls = CFG.links;
 if (!ls.length) $("#bd").innerHTML = '<p class="note">Próximamente.</p>';
-ls.forEach(l => { const a = document.createElement("a"); a.className = "b88"; a.href = l.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = l.label; $("#bd").append(a); });
+ls.forEach(l => {
+  const el = document.createElement(l.url ? "a" : "span");
+  el.className = "b88";
+  if (l.url) {
+    el.href = l.url;
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  }
+  el.textContent = l.text ? l.label + ": " + l.text : l.label;
+  $("#bd").append(el);
+});
 
 /* Contador local (por navegador) */
 try { const n = (+localStorage.getItem("kw_v") || 0) + 1; localStorage.setItem("kw_v", n); $("#vc").textContent = "tus visitas en este navegador: " + n; } catch (e) {}
