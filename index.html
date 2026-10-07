@@ -51,6 +51,10 @@ h1 b{color:var(--red)}
 .prog{width:100%;height:10px;background:#000;border:1px solid var(--edge);cursor:pointer;margin-top:10px}
 .prog div{height:100%;width:0;background:var(--red)}
 .note{color:var(--mute);font-size:13px;margin:.6rem 0 0}
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
+.track{border:1px solid var(--edge);background:#0d0d10;padding:12px}
+.track strong{display:block}.track small{display:block;color:var(--mute);margin-bottom:8px}
+.track .tn{margin:.6rem 0 0}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .chip.on{background:var(--red);color:#fff}
 .works{display:grid;gap:10px}
@@ -89,7 +93,8 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
       <div><h1>Kuroko<b>_W</b></h1>
         <p class="sub">Uriel · voice over · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
-        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a></div>
+        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a>
+        <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a></div>
     </div></section>
 
   <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
@@ -105,6 +110,12 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
     <div class="body"><p class="sub">Audiciones, proyectos y encargos:</p>
       <p class="mail"><a id="ml" href="#"></a></p>
       <button class="btn" id="cp">copiar correo</button> <span class="note" id="cm"></span></div></section>
+
+  <section class="win wide" id="voiceover"><div class="tb"><span>voice_over/</span><button aria-label="minimizar">_</button></div>
+    <div class="body"><div class="tracks" id="tv"></div></div></section>
+
+  <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/</span><button aria-label="minimizar">_</button></div>
+    <div class="body"><div class="tracks" id="ta"></div></div></section>
 
   <section class="win wide" id="trabajos"><div class="tb"><span>trabajos/</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="chips" id="ch"></div><div class="works" id="wk"></div></div></section>
@@ -125,6 +136,16 @@ const CFG = {
     "voice over en español mexicano / latinoamericano",
     "inglés con estilo spanglish",
     "audiciones, proyectos y sesiones en vivo"
+  ],
+  // Demos de Voice Over (cada archivo debe estar junto a index.html)
+  voiceover: [
+    { title: "Demo principal", desc: "Voice Over", file: "demo.wav" },
+    { title: "Comic Dub Demo", desc: "Voice Over · doblaje de cómic", file: "democomicdub.wav" }
+  ],
+  // Muestras de Ingeniería de audio
+  audioeng: [
+    { title: "Audio Mixer 1", desc: "Ing. de audio · mezcla", file: "audiomixer1.wav" },
+    { title: "Audio Mixer 2", desc: "Ing. de audio · mezcla", file: "audiomixer2.mp3" }
   ],
   // Trabajos y demos de voz
   works: [
@@ -211,6 +232,35 @@ au.ontimeupdate = () => { $("#pb").style.width = (au.currentTime / (au.duration 
 $("#pg").onclick = e => { if (au.duration) au.currentTime = e.offsetX / e.currentTarget.clientWidth * au.duration; };
 au.onerror = () => { $("#dn").textContent = "No se encontró demo.wav. Sube tu archivo con ese nombre junto a index.html."; };
 $(".wave").innerHTML = "<i></i>".repeat(28);
+
+/* Reproductores de Voice Over e Ing. de audio */
+document.addEventListener("play", e => { document.querySelectorAll("audio").forEach(a => { if (a !== e.target) a.pause(); }); }, true);
+function renderTracks(list, root) {
+  list.forEach(t => {
+    const box = document.createElement("div"); box.className = "track";
+    const h = document.createElement("strong"); h.textContent = t.title;
+    const sm = document.createElement("small"); sm.textContent = t.desc || "";
+    const a = document.createElement("audio"); a.preload = "none"; a.src = t.file;
+    const pl = document.createElement("div"); pl.className = "player";
+    const b = document.createElement("button"); b.className = "btn"; b.textContent = "▶ play"; b.setAttribute("aria-label", "Reproducir " + t.title);
+    const w = document.createElement("div"); w.className = "wave"; w.setAttribute("aria-hidden", "true"); w.innerHTML = "<i></i>".repeat(20);
+    pl.append(b, w);
+    const pg = document.createElement("div"); pg.className = "prog"; pg.setAttribute("role", "progressbar"); pg.setAttribute("aria-label", "Progreso de " + t.title);
+    const pb = document.createElement("div"); pg.append(pb);
+    const n = document.createElement("p"); n.className = "note tn";
+    const dl = document.createElement("a"); dl.href = t.file; dl.download = ""; dl.textContent = "descargar";
+    n.append(dl);
+    b.onclick = () => { if (a.paused) a.play().catch(() => {}); else a.pause(); };
+    a.onplay = () => { pl.classList.add("playing"); b.textContent = "❚❚ pausa"; b.setAttribute("aria-label", "Pausar " + t.title); };
+    a.onpause = a.onended = () => { pl.classList.remove("playing"); b.textContent = "▶ play"; b.setAttribute("aria-label", "Reproducir " + t.title); };
+    a.ontimeupdate = () => { pb.style.width = (a.currentTime / (a.duration || 1) * 100) + "%"; };
+    pg.onclick = e => { if (a.duration) a.currentTime = e.offsetX / e.currentTarget.clientWidth * a.duration; };
+    a.onerror = () => { n.textContent = "No se encontró " + t.file + ". Sube tu archivo con ese nombre junto a index.html."; };
+    box.append(h, sm, a, pl, pg, n); root.append(box);
+  });
+}
+renderTracks(CFG.voiceover, $("#tv"));
+renderTracks(CFG.audioeng, $("#ta"));
 
 /* Contacto */
 const ml = $("#ml"); ml.href = "mailto:" + CFG.email; ml.textContent = CFG.email;
