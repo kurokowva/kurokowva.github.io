@@ -3,118 +3,141 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kuroko_W (Uriel) | Voice Over</title>
-<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano. Demo, trabajos y contacto.">
-<meta property="og:title" content="Kuroko_W | Voice Actor">
-<meta property="og:image" content="avatar.png">
-<link rel="icon" href="avatar.png">
+<title>Kuroko_W | Voice Over & Ing. de audio</title>
+<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano e ingeniería de audio. Demos, trabajos y contacto.">
+<meta property="og:title" content="Kuroko_W | Voice Actor & Audio Engineer">
+<meta property="og:image" content="kuroko.png">
+<link rel="icon" href="kuroko.png">
 <style>
-:root{--bg:#09090b;--win:#141418;--edge:#3b3b44;--red:#ff2a2a;--dred:#8a0f0f;--fg:#e9e9ec;--mute:#8b8b96;--ok:#7dffb0;
-font-family:"Lucida Console","Courier New",monospace}
+:root{--sea:#06131f;--navy:#000080;--blue:#1084d0;--gray:#c0c0c0;--ink:#101018;--lamp:#ffc27a;--ice:#bfe9f5;--dk:#0a1a2b;
+font-family:Tahoma,Verdana,"MS Sans Serif",sans-serif}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0)}
-body{margin:0;background:var(--bg);color:var(--fg);font-size:15px;line-height:1.6;min-height:100vh;
-background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:32px 32px;
-padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(#0000 0 2px,#0000002e 2px 3px);z-index:50}
-a{color:var(--red)}
-:focus-visible{outline:2px dashed var(--ok);outline-offset:2px}
-.ticker{background:#000;border-bottom:2px solid var(--red);overflow:hidden;white-space:nowrap;color:var(--red);font-size:13px;padding:4px 0}
-.ticker span{display:inline-block;padding-left:100%;animation:tk 28s linear infinite}
+html{scroll-padding-top:env(safe-area-inset-top,0);scroll-behavior:smooth}
+body{margin:0;color:var(--ice);font-size:15px;line-height:1.55;min-height:100vh;
+background:radial-gradient(circle 300px at var(--mx,72%) var(--my,16%),#ffc27a3a,#0000 72%) fixed,radial-gradient(#2a6a9a66 1px,#0000 1.6px) 0 0/22px 22px,linear-gradient(#06131f,#0b2a45) fixed;
+padding:env(safe-area-inset-top,0) 0 calc(52px + env(safe-area-inset-bottom,0))}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(#0000 0 2px,#00000026 2px 3px);z-index:50}
+a{color:#00007a}
+:focus-visible{outline:2px dotted var(--lamp);outline-offset:2px}
+.win :focus-visible{outline-color:#000}
+.ticker{background:#000;border-bottom:2px solid var(--blue);overflow:hidden;white-space:nowrap;color:var(--lamp);font:13px "Lucida Console","Courier New",monospace;padding:4px 0}
+.ticker span{display:inline-block;padding-left:100%;animation:tk 32s linear infinite}
 @keyframes tk{to{transform:translateX(-100%)}}
-.bar{display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:10px 16px;color:var(--mute);font-size:13px}
-main{max-width:1000px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px;align-items:start}
+.bar{max-width:1040px;margin:0 auto;padding:10px 16px;color:#7fb0cf;font:13px "Lucida Console","Courier New",monospace}
+main{max-width:1040px;margin:0 auto;padding:6px 16px 36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:26px;align-items:start}
 .wide{grid-column:1/-1}
-.win{background:var(--win);border:2px solid;border-color:var(--edge) #000 #000 var(--edge);box-shadow:6px 6px 0 #000}
-.tb{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 8px;background:linear-gradient(90deg,var(--dred),var(--red));color:#fff;font-weight:bold;font-size:13px}
-.tb button{font:inherit;width:22px;height:20px;line-height:1;padding:0;background:#c9c9d0;color:#000;border:2px solid;border-color:#fff #555 #555 #fff;cursor:pointer}
-.body{padding:16px}
+.win{background:var(--gray);color:var(--ink);border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:1px 1px 0 #000,8px 8px 0 #000a;padding:3px}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 4px 3px 8px;background:linear-gradient(90deg,var(--navy),var(--blue));color:#fff;font-weight:bold;font-size:13px}
+.tb span{display:flex;align-items:center;gap:8px}
+.tb button{font:bold 12px/1 Tahoma,sans-serif;width:20px;height:18px;padding:0;background:var(--gray);color:#000;border:2px solid;border-color:#fff #404040 #404040 #fff;cursor:pointer}
+.new{background:var(--lamp);color:#000;font-size:10px;padding:0 5px;animation:bk 1s steps(1) infinite}
+@keyframes bk{50%{opacity:0}}
+.body{padding:14px}
 .win.min .body{display:none}
-h1{margin:0;font-size:clamp(2rem,7vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
-h1 b{color:var(--red)}
-.who{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.pfp{width:min(200px,60vw);aspect-ratio:1;border:3px solid var(--red);image-rendering:pixelated;box-shadow:0 0 0 3px #000,0 0 28px #ff2a2a66;cursor:pointer;transition:transform .15s}
-.pfp:hover,.pfp.g{animation:gl .35s steps(2) 2}
+.sunk{background:var(--dk);color:var(--ice);border:2px solid;border-color:#404040 #fff #fff #404040;padding:14px}
+.sunk a{color:var(--lamp)}
+.btn{font:inherit;display:inline-block;background:var(--gray);color:#000;text-decoration:none;padding:5px 14px;border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:inset -1px -1px 0 #808080;cursor:pointer;margin:2px 2px 2px 0}
+.btn:active{border-color:#404040 #fff #fff #404040;box-shadow:inset 1px 1px 0 #808080}
+.who{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:18px;align-items:stretch}
+@media(max-width:640px){.who{grid-template-columns:1fr}.fig{max-width:300px;margin:0 auto}}
+.fig{position:relative;padding:14px 14px 0;display:grid;place-items:end center;overflow:hidden;background:radial-gradient(circle at 45% 14%,#ffc27a44,#0000 46%),var(--dk)}
+.fig::before{content:"";position:absolute;left:43%;top:11%;width:130px;height:130px;margin:-65px 0 0 -65px;background:radial-gradient(#ffc27a99,#0000 66%);animation:fl 2.4s ease-in-out infinite alternate}
+@keyframes fl{from{opacity:.45;transform:scale(.85)}to{opacity:1;transform:scale(1.1)}}
+.pfp{position:relative;width:100%;height:auto;image-rendering:pixelated;cursor:pointer;animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.pfp.g{animation:gl .35s steps(2) 2}
 @keyframes gl{25%{transform:translate(-4px,2px);filter:hue-rotate(40deg)}75%{transform:translate(4px,-2px);filter:hue-rotate(-40deg)}}
-.sub{color:var(--mute);margin:.3rem 0}
-.type{color:var(--ok);min-height:1.6em}
-.type::after{content:"█";animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.btn{font:inherit;display:inline-block;background:#c9c9d0;color:#000;text-decoration:none;padding:5px 12px;border:2px solid;border-color:#fff #555 #555 #fff;cursor:pointer}
-.btn:active{border-color:#555 #fff #fff #555}
+h1{margin:0;font:clamp(2.4rem,9vw,4.2rem)/1 "Arial Black",Impact,sans-serif;color:#fff;letter-spacing:-.03em;text-shadow:3px 3px 0 var(--navy),6px 6px 0 #000}
+h1 b{color:var(--lamp)}
+.sub{color:#9fc4d6;margin:.7rem 0 .3rem}
+.type{color:var(--lamp);min-height:1.6em;font-family:"Lucida Console","Courier New",monospace}
+.type::after{content:"█";animation:bk 1s steps(1) infinite}
+.stat{margin:.6rem 0 1rem;font-size:13px;color:#7dffb0}
 .player{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .wave{display:flex;gap:3px;align-items:center;height:44px;flex:1;min-width:120px}
-.wave i{flex:1;background:var(--red);height:20%;transition:height .2s}
+.wave i{flex:1;background:var(--lamp);height:20%}
 .playing .wave i{animation:wv .8s ease-in-out infinite alternate}
 .wave i:nth-child(3n){animation-delay:-.3s}.wave i:nth-child(3n+1){animation-delay:-.6s}.wave i:nth-child(4n){animation-delay:-.1s}
 @keyframes wv{from{height:15%}to{height:100%}}
-.prog{width:100%;height:10px;background:#000;border:1px solid var(--edge);cursor:pointer;margin-top:10px}
-.prog div{height:100%;width:0;background:var(--red)}
-.note{color:var(--mute);font-size:13px;margin:.6rem 0 0}
-.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
-.track{border:1px solid var(--edge);background:#0d0d10;padding:12px}
-.track strong{display:block}.track small{display:block;color:var(--mute);margin-bottom:8px}
-.track .tn{margin:.6rem 0 0}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.chip.on{background:var(--red);color:#fff}
+.prog{width:100%;height:12px;background:#000;border:2px solid;border-color:#404040 #fff #fff #404040;cursor:pointer;margin-top:10px}
+.prog div{height:100%;width:0;background:var(--blue)}
+.note{color:#3a3a46;font-size:13px;margin:.6rem 0 0}
+.sunk .note{color:#9fc4d6}
+.tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.track strong{display:block;color:#fff}.track small{display:block;color:#9fc4d6;margin-bottom:8px}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.chip.on{background:var(--navy);color:#fff}
 .works{display:grid;gap:10px}
-.work{display:block;text-decoration:none;color:var(--fg);border:1px solid var(--edge);padding:10px 12px;background:#0d0d10;transition:border-color .1s,transform .1s}
-.work:hover{border-color:var(--red);transform:translateX(4px)}
-.work strong{color:var(--fg)}.work small{color:var(--mute);display:block}
-.tag{color:var(--ok)}
+.work{display:block;text-decoration:none;color:var(--ice);background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;padding:10px 12px}
+.work:hover{outline:2px solid var(--lamp);outline-offset:-2px}
+.work strong{color:#fff}.work small{color:#9fc4d6;display:block}
+.tag{color:var(--lamp)!important}
 ul.l{list-style:none;margin:0;padding:0}
-ul.l li{border-bottom:1px dashed var(--edge);padding:6px 0;display:flex;justify-content:space-between;gap:12px}
+ul.l li{border-bottom:1px dashed #808080;padding:6px 0;display:flex;justify-content:space-between;gap:12px}
+ul.l li span+span{color:#3a3a46;text-align:right}
 .mail{font-size:1.05rem;word-break:break-all}
 .badges{display:flex;flex-wrap:wrap;gap:8px}
-.b88{width:88px;height:31px;display:grid;place-items:center;font-size:11px;text-decoration:none;color:var(--fg);background:#000;border:1px solid var(--red)}
-.b88:hover{background:var(--red);color:#000}
-footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font-size:12px}
+.b88{min-width:88px;min-height:31px;padding:0 8px;display:grid;place-items:center;font-size:11px;text-decoration:none;color:var(--ice);background:#000;border:1px solid var(--lamp)}
+a.b88:hover{background:var(--lamp);color:#000}
+footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-size:12px;text-align:center}
+.dg{display:inline-block;background:#000;color:#7dffb0;font:bold 13px "Lucida Console",monospace;padding:1px 4px;margin:0 1px;border:1px solid #404040}
+#tk{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--gray);border-top:2px solid #fff;padding:4px 6px calc(4px + env(safe-area-inset-bottom,0))}
+#tk .btn{margin:0}
+#st0{font-weight:bold;display:flex;align-items:center;gap:6px}
+#st0 i{width:12px;height:12px;border-radius:50%;background:var(--lamp);box-shadow:0 0 6px var(--lamp)}
+.tray{display:flex;align-items:center;gap:10px;color:#000;font-size:13px;border:2px solid;border-color:#404040 #fff #fff #404040;padding:2px 8px}
+.tray .btn{padding:1px 8px;font-size:12px}
+@media(max-width:480px){#clk{display:none}.tray{gap:4px;padding:2px 4px}.tray .btn{padding:1px 5px}}
+#sm{display:none;position:fixed;left:4px;bottom:calc(46px + env(safe-area-inset-bottom,0));z-index:61;width:220px;background:var(--gray);border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:4px 4px 0 #000a}
+#sm.on{display:block}
+#sm a{display:block;padding:9px 14px;color:#000;text-decoration:none}
+#sm a:hover,#sm a:focus-visible{background:var(--navy);color:#fff}
 #boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;padding:20px}
 #boot.out{display:none}
-#boot pre{margin:0 0 18px;color:var(--ok);white-space:pre-wrap;min-height:6.5em}
-#boot .row{display:flex;gap:10px;flex-wrap:wrap}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#boot pre{margin:0 0 18px;color:var(--ice);white-space:pre-wrap;min-height:6.5em;font-family:"Lucida Console","Courier New",monospace}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
 <div id="boot" role="dialog" aria-label="Pantalla de entrada">
   <div><pre id="bt"></pre>
-  <div class="row"><button class="btn" id="ys">entrar con sonido</button><button class="btn" id="ns">entrar sin sonido</button></div></div>
+  <div><button class="btn" id="ys">entrar con sonido</button> <button class="btn" id="ns">entrar sin sonido</button></div></div>
 </div>
 
-<div class="ticker" aria-hidden="true"><span>kuroko_w // voice over // español mexicano / latinoamericano // freelance // audiciones y proyectos // kuroko_w //</span></div>
-<div class="bar"><span>C:\kuroko_w\portafolio</span><span><button class="btn" id="mute" aria-pressed="false">sonido: on</button></span></div>
+<audio id="bgm" preload="none"></audio>
+<div class="ticker" aria-hidden="true"><span>★ kuroko_w // voice over // ing. de audio // español mexicano / latinoamericano // abierto a audiciones y proyectos // kuroko_w ★</span></div>
+<div class="bar">C:\kuroko_w\portafolio\</div>
 
 <main>
   <section class="win wide" id="hero"><div class="tb"><span>kuroko_w.exe</span><button aria-label="minimizar">_</button></div>
     <div class="body who">
-      <img class="pfp" id="pfp" src="avatar.png" alt="Avatar de Kuroko_W: hombre de cabello rizado con audífonos, en estilo pixel art rojo y negro" width="200" height="200">
-      <div><h1>Kuroko<b>_W</b></h1>
-        <p class="sub">Uriel · voice over · español mexicano / latinoamericano</p>
+      <div class="sunk fig"><img class="pfp" id="pfp" src="kuroko.png" alt="Kuroko_W: personaje en pixel art de piel azul, cabello oscuro, orejas de aleta y un farol colgando como de pez abisal" width="385" height="440"></div>
+      <div class="sunk"><h1>Kuroko<b>_W</b></h1>
+        <p class="sub">Voice over e ing. de audio · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
-        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a>
-        <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a></div>
+        <p class="stat">● disponible para audiciones</p>
+        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a> <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a></div>
     </div></section>
 
   <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
-    <div class="body">
+    <div class="body"><div class="sunk">
       <audio id="au" src="demo.wav" preload="none"></audio>
       <div class="player" id="pl"><button class="btn" id="pp" aria-label="Reproducir demo">▶ play</button><div class="wave" aria-hidden="true"></div></div>
       <div class="prog" id="pg" role="progressbar" aria-label="Progreso del demo"><div id="pb"></div></div>
       <p class="note" id="dn">Pulsa play. El sonido nunca arranca solo.</p>
       <p class="note"><a href="demo.wav" download>descargar demo</a></p>
-    </div></section>
+    </div></div></section>
 
   <section class="win" id="contacto"><div class="tb"><span>contacto.txt</span><button aria-label="minimizar">_</button></div>
-    <div class="body"><p class="sub">Audiciones, proyectos y encargos:</p>
+    <div class="body"><p>Audiciones, proyectos y encargos:</p>
       <p class="mail"><a id="ml" href="#"></a></p>
       <button class="btn" id="cp">copiar correo</button> <span class="note" id="cm"></span></div></section>
 
-  <section class="win wide" id="voiceover"><div class="tb"><span>voice_over/</span><button aria-label="minimizar">_</button></div>
+  <section class="win wide" id="voiceover"><div class="tb"><span>voice_over/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="tracks" id="tv"></div></div></section>
 
-  <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/</span><button aria-label="minimizar">_</button></div>
+  <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="tracks" id="ta"></div></div></section>
 
   <section class="win wide" id="trabajos"><div class="tb"><span>trabajos/</span><button aria-label="minimizar">_</button></div>
@@ -126,7 +149,13 @@ footer{max-width:1000px;margin:0 auto;padding:0 16px 30px;color:var(--mute);font
   <section class="win" id="redes"><div class="tb"><span>redes.lnk</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="badges" id="bd"></div></div></section>
 </main>
-<footer>Kuroko_W · <span id="vc"></span></footer>
+<footer>Kuroko_W · mejor visto en 800×600 · visitante nº <span id="vc"></span></footer>
+
+<nav id="sm" aria-label="Menú de inicio">
+  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#trabajos">trabajos/</a><a href="#contacto">contacto.txt</a>
+</nav>
+<div id="tk"><button class="btn" id="st0" aria-expanded="false" aria-controls="sm"><i></i>Inicio</button>
+  <div class="tray"><button class="btn" id="mus" aria-pressed="false">música: off</button><button class="btn" id="mute" aria-pressed="false">sonido: on</button><span id="clk"></span></div></div>
 
 <script>
 /* ============ EDITA AQUÍ ============ */
@@ -134,9 +163,13 @@ const CFG = {
   email: "kurokow.va@gmail.com",
   typed: [
     "voice over en español mexicano / latinoamericano",
+    "ingeniería de audio y mezcla",
     "inglés con estilo spanglish",
     "audiciones, proyectos y sesiones en vivo"
   ],
+  // Música de fondo (el archivo va junto a index.html) y su volumen (0 a 1)
+  bgm: "Wii Party Soundtrack Main Menu Music (Nostalgia Version).mp3",
+  bgmVolume: .15,
   // Demos de Voice Over (cada archivo debe estar junto a index.html)
   voiceover: [
     { title: "Demo principal", desc: "Voice Over", file: "demo.wav" },
@@ -171,6 +204,7 @@ const CFG = {
 const $ = s => document.querySelector(s);
 let muted = false, ctx = null;
 try { muted = localStorage.getItem("kw_mute") === "1"; } catch (e) {}
+const mkCtx = () => { if (!ctx) { try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} } };
 
 /* Sonidos sintetizados (sin archivos) */
 function tone(f, d = .07, type = "square", v = .05, t0 = 0) {
@@ -188,19 +222,27 @@ function setMute(m) { muted = m; $("#mute").textContent = "sonido: " + (m ? "off
 setMute(muted);
 document.addEventListener("mouseover", e => { if (e.target.closest("a,button,.work,.pfp")) sHover(); });
 document.addEventListener("click", e => { if (e.target.closest("a,button,.work,.pfp")) sClick(); });
-$("#mute").onclick = () => setMute(!muted);
+$("#mute").onclick = () => { mkCtx(); setMute(!muted); };
 
 /* Boot */
-const lines = "> iniciando kuroko_w.exe\n> cargando portafolio...\n> audio: listo\n> ok.";
+const lines = "> iniciando kuroko_w.exe\n> encendiendo el farol...\n> audio: listo\n> ok.";
 let bi = 0; const bt = $("#bt");
 const bti = setInterval(() => { bt.textContent = lines.slice(0, ++bi); if (bi >= lines.length) clearInterval(bti); }, 30);
 function enter(snd) {
-  if (snd) { try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} setMute(false); sBoot(); }
-  else setMute(true);
-  $("#boot").classList.add("out"); typeLoop();
+  if (snd) { mkCtx(); setMute(false); sBoot(); } else setMute(true);
+  $("#boot").classList.add("out"); typeLoop(); setMusic(snd);
 }
 $("#ys").onclick = () => enter(true); $("#ns").onclick = () => enter(false);
-$("#mute").addEventListener("click", () => { if (!ctx) { try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} } });
+
+/* Luz del farol que sigue al cursor */
+document.addEventListener("pointermove", e => { const s = document.body.style; s.setProperty("--mx", e.clientX + "px"); s.setProperty("--my", e.clientY + "px"); });
+
+/* Menú inicio y reloj */
+const sm = $("#sm"), s0 = $("#st0");
+s0.onclick = e => { e.stopPropagation(); const on = sm.classList.toggle("on"); s0.setAttribute("aria-expanded", on); };
+document.addEventListener("click", e => { if (!e.target.closest("#sm") && sm.classList.contains("on")) { sm.classList.remove("on"); s0.setAttribute("aria-expanded", "false"); } });
+const clk = () => { $("#clk").textContent = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); };
+clk(); setInterval(clk, 30000);
 
 /* Máquina de escribir */
 let started = false;
@@ -220,7 +262,7 @@ function typeLoop() {
 /* Ventanas minimizables */
 document.querySelectorAll(".tb button").forEach(b => b.onclick = () => b.closest(".win").classList.toggle("min"));
 
-/* Avatar */
+/* Personaje */
 $("#pfp").onclick = e => { e.target.classList.remove("g"); void e.target.offsetWidth; e.target.classList.add("g"); tone(200, .2, "sawtooth", .06); };
 
 /* Demo */
@@ -233,11 +275,43 @@ $("#pg").onclick = e => { if (au.duration) au.currentTime = e.offsetX / e.curren
 au.onerror = () => { $("#dn").textContent = "No se encontró demo.wav. Sube tu archivo con ese nombre junto a index.html."; };
 $(".wave").innerHTML = "<i></i>".repeat(28);
 
+/* Música de fondo: canción → tape stop → demo → tape stop → canción (infinito) */
+const bg = $("#bgm"); let musicOn = false;
+bg.src = encodeURI(CFG.bgm); bg.volume = CFG.bgmVolume;
+function tapeStop(el, base, cb, ms = 1200) {
+  el.preservesPitch = el.webkitPreservesPitch = el.mozPreservesPitch = false;
+  const t0 = performance.now();
+  const reset = () => { el.playbackRate = 1; el.volume = base; el._ts = false; el.preservesPitch = el.webkitPreservesPitch = el.mozPreservesPitch = true; };
+  const iv = setInterval(() => {
+    const k = Math.min(1, (performance.now() - t0) / ms);
+    if (el.paused) { clearInterval(iv); reset(); return; }
+    el.playbackRate = Math.max(.0625, Math.pow(1 - k, 1.6));
+    el.volume = base * Math.sqrt(1 - k);
+    if (k >= 1) { clearInterval(iv); el.pause(); reset(); cb(); }
+  }, 40);
+}
+function watchEnd(el, base, cb) {
+  el.addEventListener("timeupdate", () => {
+    if (!musicOn || el._ts || el.paused || !isFinite(el.duration)) return;
+    if (el.duration - el.currentTime < 1.6) { el._ts = true; tapeStop(el, base, cb); }
+  });
+  el.addEventListener("ended", () => { if (musicOn && !el._ts) cb(); });
+}
+const playBgm = () => { bg.currentTime = 0; bg.play().catch(() => {}); };
+watchEnd(bg, CFG.bgmVolume, () => au.play().catch(() => {}));
+watchEnd(au, 1, playBgm);
+function setMusic(on) {
+  musicOn = on; $("#mus").textContent = "música: " + (on ? "on" : "off"); $("#mus").setAttribute("aria-pressed", on);
+  if (on) { if (bg.paused && au.paused) { if (bg.ended) bg.currentTime = 0; bg.play().catch(() => {}); } } else bg.pause();
+}
+$("#mus").onclick = () => setMusic(!musicOn);
+bg.onerror = () => { musicOn = false; $("#mus").textContent = "música: no encontrada"; $("#mus").setAttribute("aria-pressed", "false"); };
+
 /* Reproductores de Voice Over e Ing. de audio */
 document.addEventListener("play", e => { document.querySelectorAll("audio").forEach(a => { if (a !== e.target) a.pause(); }); }, true);
 function renderTracks(list, root) {
   list.forEach(t => {
-    const box = document.createElement("div"); box.className = "track";
+    const box = document.createElement("div"); box.className = "sunk track";
     const h = document.createElement("strong"); h.textContent = t.title;
     const sm = document.createElement("small"); sm.textContent = t.desc || "";
     const a = document.createElement("audio"); a.preload = "none"; a.src = t.file;
@@ -247,7 +321,7 @@ function renderTracks(list, root) {
     pl.append(b, w);
     const pg = document.createElement("div"); pg.className = "prog"; pg.setAttribute("role", "progressbar"); pg.setAttribute("aria-label", "Progreso de " + t.title);
     const pb = document.createElement("div"); pg.append(pb);
-    const n = document.createElement("p"); n.className = "note tn";
+    const n = document.createElement("p"); n.className = "note";
     const dl = document.createElement("a"); dl.href = t.file; dl.download = ""; dl.textContent = "descargar";
     n.append(dl);
     b.onclick = () => { if (a.paused) a.play().catch(() => {}); else a.pause(); };
@@ -286,23 +360,20 @@ function renderWorks() {
 renderWorks();
 
 /* Setup y redes */
-CFG.setup.forEach(([k, v]) => { const li = document.createElement("li"); const a = document.createElement("span"), b = document.createElement("span"); a.textContent = k; b.textContent = v; b.style.color = "var(--mute)"; li.append(a, b); $("#st").append(li); });
+CFG.setup.forEach(([k, v]) => { const li = document.createElement("li"); const a = document.createElement("span"), b = document.createElement("span"); a.textContent = k; b.textContent = v; li.append(a, b); $("#st").append(li); });
 const ls = CFG.links;
 if (!ls.length) $("#bd").innerHTML = '<p class="note">Próximamente.</p>';
 ls.forEach(l => {
   const el = document.createElement(l.url ? "a" : "span");
   el.className = "b88";
-  if (l.url) {
-    el.href = l.url;
-    el.target = "_blank";
-    el.rel = "noopener noreferrer";
-  }
+  if (l.url) { el.href = l.url; el.target = "_blank"; el.rel = "noopener noreferrer"; }
   el.textContent = l.text ? l.label + ": " + l.text : l.label;
   $("#bd").append(el);
 });
 
 /* Contador local (por navegador) */
-try { const n = (+localStorage.getItem("kw_v") || 0) + 1; localStorage.setItem("kw_v", n); $("#vc").textContent = "tus visitas en este navegador: " + n; } catch (e) {}
+try { const n = (+localStorage.getItem("kw_v") || 0) + 1; localStorage.setItem("kw_v", n);
+  $("#vc").innerHTML = String(n).padStart(6, "0").split("").map(d => '<span class="dg">' + d + "</span>").join(""); } catch (e) {}
 </script>
 </body>
 </html>
