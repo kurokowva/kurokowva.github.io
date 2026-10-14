@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kuroko_W | Voice Over & Ing. de audio</title>
-<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano e ingeniería de audio. Demos, trabajos y contacto.">
+<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano e ingeniería de audio. Demos, colaboraciones y contacto.">
 <meta property="og:title" content="Kuroko_W | Voice Actor & Audio Engineer">
 <meta property="og:image" content="kuroko.png">
 <link rel="icon" href="kuroko.png">
@@ -70,13 +70,15 @@ h1 b{color:var(--lamp)}
 .sunk .note{color:#9fc4d6}
 .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
 .track strong{display:block;color:#fff}.track small{display:block;color:#9fc4d6;margin-bottom:8px}
-.chips{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
-.chip.on{background:var(--navy);color:#fff}
 .works{display:grid;gap:10px}
 .work{display:block;text-decoration:none;color:var(--ice);background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;padding:10px 12px}
 .work:hover{outline:2px solid var(--lamp);outline-offset:-2px}
 .work strong{color:#fff}.work small{color:#9fc4d6;display:block}
-.tag{color:var(--lamp)!important}
+.uc{text-align:center;padding:10px 0}
+.uc .em{font-size:3.4rem;line-height:1;display:block}
+.uc .stripe{height:14px;max-width:340px;margin:10px auto;border:2px solid #000;background:repeating-linear-gradient(-45deg,#ffd400 0 14px,#000 14px 28px)}
+.uc p{margin:6px 0 2px;font:1.35rem/1.2 "Arial Black",Impact,sans-serif;letter-spacing:.12em;color:var(--lamp);animation:bk 1.4s steps(1) infinite}
+.uc small{color:#9fc4d6}
 ul.l{list-style:none;margin:0;padding:0}
 ul.l li{border-bottom:1px dashed #808080;padding:6px 0;display:flex;justify-content:space-between;gap:12px}
 ul.l li span+span{color:#3a3a46;text-align:right}
@@ -145,8 +147,8 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
   <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="tracks" id="ta"></div></div></section>
 
-  <section class="win wide" id="trabajos"><div class="tb"><span>trabajos/</span><button aria-label="minimizar">_</button></div>
-    <div class="body"><div class="chips" id="ch"></div><div class="works" id="wk"></div></div></section>
+  <section class="win wide" id="colaboraciones"><div class="tb"><span>colaboraciones/</span><button aria-label="minimizar">_</button></div>
+    <div class="body"><div class="works" id="wk"></div></div></section>
 
   <section class="win" id="estudio"><div class="tb"><span>setup.ini</span><button aria-label="minimizar">_</button></div>
     <div class="body"><ul class="l" id="st"></ul></div></section>
@@ -157,7 +159,7 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 <footer>Kuroko_W · mejor visto en 800×600 · visitante nº <span id="vc"></span></footer>
 
 <nav id="sm" aria-label="Menú de inicio">
-  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#trabajos">trabajos/</a><a href="#contacto">contacto.txt</a>
+  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a>
 </nav>
 <div id="tk"><button class="btn" id="st0" aria-expanded="false" aria-controls="sm"><i></i>Inicio</button>
   <div class="tray"><button class="btn" id="mus" aria-pressed="false">música: off</button><button class="btn" id="mute" aria-pressed="false">sonido: on</button><span id="clk"></span></div></div>
@@ -187,10 +189,9 @@ const CFG = {
     { title: "SFX 1", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX.mp3" },
     { title: "SFX 2", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX_2.mp3" }
   ],
-  // Trabajos y demos de voz
-  works: [
-    { title: "Comic Dub Demo", role: "Voice Over", type: "Demo", url: "democomicdub.wav" }
-  ],
+  // Colaboraciones: proyectos en los que has participado (url es opcional)
+  // Ejemplo: { title: "Nombre del proyecto", role: "Tu papel", url: "https://..." }
+  collabs: [],
   // Equipo y condiciones de trabajo
   setup: [
     ["Micrófono", "BY-M1 Pro II"],
@@ -356,24 +357,22 @@ renderTracks(CFG.audioeng, $("#ta"));
 const ml = $("#ml"); ml.href = "mailto:" + CFG.email; ml.textContent = CFG.email;
 $("#cp").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(CFG.email) : Promise.reject()).then(() => $("#cm").textContent = "copiado", () => $("#cm").textContent = "cópialo manualmente"); };
 
-/* Trabajos */
-let cat = "Todos";
+/* Colaboraciones */
 function host(u) { try { return new URL(u).hostname.replace("www.", ""); } catch (e) { return u; } }
-function renderWorks() {
-  const W = CFG.works, cats = ["Todos", ...new Set(W.map(w => w.type).filter(Boolean))];
-  $("#ch").innerHTML = ""; $("#wk").innerHTML = "";
-  if (!W.length) { $("#wk").innerHTML = '<p class="note">Carpeta vacía. Próximamente: proyectos con enlace.</p>'; return; }
-  if (cats.length > 2) cats.forEach(c => { const b = document.createElement("button"); b.className = "btn chip" + (c === cat ? " on" : ""); b.textContent = c; b.onclick = () => { cat = c; renderWorks(); }; $("#ch").append(b); });
-  W.filter(w => cat === "Todos" || w.type === cat).forEach(w => {
-    const a = document.createElement("a"); a.className = "work"; a.href = w.url; a.target = "_blank"; a.rel = "noopener noreferrer";
-    const s = document.createElement("strong"); s.textContent = w.title;
-    const sm = document.createElement("small"); sm.textContent = [w.role, host(w.url)].filter(Boolean).join(" · ");
-    a.append(s, sm);
-    if (w.type) { const t = document.createElement("small"); t.className = "tag"; t.textContent = "[" + w.type + "]"; a.append(t); }
-    $("#wk").append(a);
+(function () {
+  const C = CFG.collabs, root = $("#wk");
+  if (!C.length) {
+    root.innerHTML = '<div class="sunk uc"><span class="em" aria-hidden="true">🚧</span><div class="stripe" aria-hidden="true"></div><p>EN CONSTRUCCIÓN</p><small>Próximamente: proyectos en los que he participado.</small></div>';
+    return;
+  }
+  C.forEach(c => {
+    const el = document.createElement(c.url ? "a" : "div"); el.className = "work";
+    if (c.url) { el.href = c.url; el.target = "_blank"; el.rel = "noopener noreferrer"; }
+    const t = document.createElement("strong"); t.textContent = c.title;
+    const r = document.createElement("small"); r.textContent = [c.role, c.url ? host(c.url) : ""].filter(Boolean).join(" · ");
+    el.append(t, r); root.append(el);
   });
-}
-renderWorks();
+})();
 
 /* Setup y redes */
 CFG.setup.forEach(([k, v]) => { const li = document.createElement("li"); const a = document.createElement("span"), b = document.createElement("span"); a.textContent = k; b.textContent = v; li.append(a, b); $("#st").append(li); });
