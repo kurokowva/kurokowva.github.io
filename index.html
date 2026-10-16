@@ -9,7 +9,7 @@
 <meta property="og:image" content="kuroko.png">
 <link rel="icon" href="kuroko.png">
 <style>
-:root{--sea:#06131f;--navy:#000080;--blue:#1084d0;--gray:#c0c0c0;--ink:#101018;--lamp:#ffc27a;--ice:#bfe9f5;--dk:#0a1a2b;
+:root{--sea:#06131f;--navy:#000080;--blue:#1084d0;--gray:#c0c0c0;--ink:#101018;--lamp:#ffc27a;--royal:#4169e1;--ice:#bfe9f5;--dk:#0a1a2b;
 font-family:Tahoma,Verdana,"MS Sans Serif",sans-serif}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0);scroll-behavior:smooth}
@@ -20,7 +20,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background:rep
 a{color:#00007a}
 :focus-visible{outline:2px dotted var(--lamp);outline-offset:2px}
 .win :focus-visible{outline-color:#000}
-.ticker{background:#000;border-bottom:2px solid var(--blue);overflow:hidden;white-space:nowrap;color:var(--lamp);font:13px "Lucida Console","Courier New",monospace;padding:4px 0}
+.ticker{background:#000;border-bottom:2px solid var(--blue);overflow:hidden;white-space:nowrap;color:var(--royal);font:13px "Lucida Console","Courier New",monospace;padding:4px 0}
 .ticker span{display:inline-block;padding-left:100%;animation:tk 32s linear infinite}
 @keyframes tk{to{transform:translateX(-100%)}}
 .bar{max-width:1040px;margin:0 auto;padding:10px 16px;color:#7fb0cf;font:13px "Lucida Console","Courier New",monospace}
@@ -35,7 +35,7 @@ main{max-width:1040px;margin:0 auto;padding:6px 16px 36px;display:grid;grid-temp
 .body{padding:14px}
 .win.min .body{display:none}
 .sunk{background:var(--dk);color:var(--ice);border:2px solid;border-color:#404040 #fff #fff #404040;padding:14px}
-.sunk a{color:var(--lamp)}
+.sunk a{color:var(--royal)}
 .btn{font:inherit;display:inline-block;background:var(--gray);color:#000;text-decoration:none;padding:5px 14px;border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:inset -1px -1px 0 #808080;cursor:pointer;margin:2px 2px 2px 0}
 .btn:active{border-color:#404040 #fff #fff #404040;box-shadow:inset 1px 1px 0 #808080}
 .who{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:18px;align-items:stretch}
@@ -53,9 +53,9 @@ main{max-width:1040px;margin:0 auto;padding:6px 16px 36px;display:grid;grid-temp
 .pfp.g{animation:gl .35s steps(2) 2}
 @keyframes gl{25%{transform:translate(-4px,2px);filter:hue-rotate(40deg)}75%{transform:translate(4px,-2px);filter:hue-rotate(-40deg)}}
 h1{margin:0;font:clamp(2.4rem,9vw,4.2rem)/1 "Arial Black",Impact,sans-serif;color:#fff;letter-spacing:-.03em;text-shadow:3px 3px 0 var(--navy),6px 6px 0 #000}
-h1 b{color:var(--lamp)}
+h1 b{color:var(--royal)}
 .sub{color:#9fc4d6;margin:.7rem 0 .3rem}
-.type{color:var(--lamp);min-height:1.6em;font-family:"Lucida Console","Courier New",monospace}
+.type{color:var(--royal);min-height:1.6em;font-family:"Lucida Console","Courier New",monospace}
 .type::after{content:"█";animation:bk 1s steps(1) infinite}
 .stat{margin:.6rem 0 1rem;font-size:13px;color:#7dffb0}
 .player{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
@@ -77,7 +77,7 @@ h1 b{color:var(--lamp)}
 .uc{text-align:center;padding:10px 0}
 .uc .em{font-size:3.4rem;line-height:1;display:block}
 .uc .stripe{height:14px;max-width:340px;margin:10px auto;border:2px solid #000;background:repeating-linear-gradient(-45deg,#ffd400 0 14px,#000 14px 28px)}
-.uc p{margin:6px 0 2px;font:1.35rem/1.2 "Arial Black",Impact,sans-serif;letter-spacing:.12em;color:var(--lamp);animation:bk 1.4s steps(1) infinite}
+.uc p{margin:6px 0 2px;font:1.35rem/1.2 "Arial Black",Impact,sans-serif;letter-spacing:.12em;color:var(--royal);animation:bk 1.4s steps(1) infinite}
 .uc small{color:#9fc4d6}
 ul.l{list-style:none;margin:0;padding:0}
 ul.l li{border-bottom:1px dashed #808080;padding:6px 0;display:flex;justify-content:space-between;gap:12px}
