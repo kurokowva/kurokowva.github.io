@@ -102,6 +102,46 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 #boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;padding:20px}
 #boot.out{display:none}
 #boot pre{margin:0 0 18px;color:var(--ice);white-space:pre-wrap;min-height:6.5em;font-family:"Lucida Console","Courier New",monospace}
+/* Easter egg: gato + juegos favoritos */
+#eggbg{display:none;position:fixed;inset:0;z-index:65;background:#000c}
+#egg{display:none;position:fixed;left:50%;top:50%;translate:-50% -50%;z-index:70;width:min(94vw,540px)}
+#eggbg.on,#egg.on{display:block}
+#egg:focus{outline:none}
+#egg .body{max-height:calc(88vh - 60px);overflow-y:auto;overflow-x:hidden}
+.egmsg{margin:0;min-height:3em;display:grid;place-items:center;text-align:center;font:14px/1.45 "Lucida Console","Courier New",monospace;color:#7dffb0}
+.foe{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.foe .egmsg{flex:1 1 180px}
+.foefig{flex:none;width:124px;overflow:hidden;line-height:0;background:radial-gradient(circle at 72% 16%,#ffc27a1c,#0000 52%),#03080d;border:2px solid;border-color:#404040 #fff #fff #404040}
+.foefig img{display:block;width:100%;height:auto;opacity:.07;image-rendering:pixelated}
+.foefig .eye{width:15%;background:radial-gradient(#f2ffff,#9aeaff 28%,#7fe3ff55 52%,#0000 74%);transition:transform .15s;animation:ey 3.4s ease-in-out infinite alternate,bl 5s infinite}
+.foefig .e2{animation-delay:-1.2s,0s}
+.foefig .lamp{transition:filter .2s}
+@keyframes bl{0%,93%,100%{scale:1 1}96%{scale:1 .1}}
+.foefig.sly .eye{transform:scaleY(.5)}
+.foefig.glee .eye{transform:scale(1.15,.55)}
+.foefig.glee .lamp{filter:brightness(1.7)}
+.foefig.shock .eye{transform:scale(1.4)}
+.foefig.shock .lamp{animation:fl .12s steps(2) 10 alternate}
+.foefig.ha .hf{animation:hah .16s steps(2) 8}
+@keyframes hah{50%{transform:translateY(-6px)}}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:min(100%,300px);margin:14px auto 4px}
+.cell{aspect-ratio:1;padding:0;font:900 clamp(2rem,11vw,3.2rem)/1 "Arial Black",Impact,sans-serif;color:#000;background:var(--gray);border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:inset -1px -1px 0 #808080;cursor:pointer}
+.cell:active{border-color:#404040 #fff #fff #404040;box-shadow:inset 1px 1px 0 #808080}
+.cell.x{color:var(--navy)}
+.cell.o{color:#b0102a}
+.cell.hl{background:var(--lamp)}
+.cell.flip{animation:flip .45s}
+@keyframes flip{50%{transform:rotateY(90deg)}}
+#egn{margin:0 0 12px}
+.eggs{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.egi{position:relative;display:grid;place-items:center;height:96px;padding:8px;cursor:pointer;background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;color:var(--ice);font:12px Tahoma,sans-serif}
+.egi img{max-width:100%;max-height:100%;object-fit:contain;display:block;pointer-events:none}
+.egi:hover{outline:2px solid var(--lamp);outline-offset:-2px}
+.egi.gone{visibility:hidden}
+.pt{position:absolute;left:50%;top:50%;pointer-events:none;z-index:3}
+.stamp{position:absolute;left:50%;top:50%;z-index:4;pointer-events:none;padding:0 6px;color:#c8102e;border:3px solid #c8102e;background:#fff9;font:900 14px "Arial Black",Impact,sans-serif;letter-spacing:.08em}
+.half{pointer-events:none}
+.eggbar{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -159,8 +199,26 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 <footer>Kuroko_W · mejor visto en 800×600 · visitante nº <span id="vc"></span></footer>
 
 <nav id="sm" aria-label="Menú de inicio">
-  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a>
+  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
 </nav>
+
+<div id="eggbg"></div>
+<section id="egg" class="win" role="dialog" aria-modal="true" aria-labelledby="egg-t" tabindex="-1">
+  <div class="tb"><span id="egg-t">gato.exe</span><button id="egg-x" aria-label="cerrar">✕</button></div>
+  <div class="body">
+    <div id="egg-game">
+      <div class="sunk foe">
+        <div class="foefig" id="egf" aria-hidden="true"><div class="hf"><img id="egf-img" alt=""><i class="lamp"></i><i class="eye" style="left:39%;top:48.8%"></i><i class="eye e2" style="left:65%;top:47.5%"></i></div></div>
+        <p class="egmsg" id="egm" aria-live="polite"></p>
+      </div>
+      <div class="board" id="egb" role="group" aria-label="Tablero del gato"></div>
+    </div>
+    <div id="egg-box" hidden>
+      <div class="sunk"><p class="note" id="egn"></p><div class="eggs" id="egs"></div></div>
+      <div class="eggbar"><button class="btn" id="egr">restaurar</button><button class="btn" id="egg2">jugar al gato</button></div>
+    </div>
+  </div>
+</section>
 <div id="tk"><button class="btn" id="st0" aria-expanded="false" aria-controls="sm"><i></i>Inicio</button>
   <div class="tray"><button class="btn" id="mus" aria-pressed="false">música: off</button><button class="btn" id="mute" aria-pressed="false">sonido: on</button><span id="clk"></span></div></div>
 
@@ -210,6 +268,24 @@ const CFG = {
     { label: "Instagram", url: "https://www.instagram.com/kuroko_woficial" },
     { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61592981305056&locale=es_LA" },
     { label: "Discord", url: "", text: "@kuroko__w" }
+  ],
+  // ===== Easter egg (menú Inicio → ???.exe): gato tramposo → juegos favoritos =====
+  eggMistake: .4,  // fallos del bot en la partida "en serio": 0 = casi imposible de ganar, 1 = juega al azar
+  eggMaxSec: 8,    // cada sonido se desvanece a los N segundos (por si el archivo es largo)
+  eggVolume: .7,   // volumen de los sonidos (0 a 1)
+  // Cada juego: imagen, sonido (déjalo "" si aún no lo tienes) y efecto de desaparición.
+  // Efectos: dust, spare, ring, glitch, pickup, stamp, split, warp, knockout, splat, fade
+  games: [
+    { name: "Undertale", img: "undertale.png", sound: "undertale.ogg", fx: "dust" },
+    { name: "Deltarune", img: "deltarune.png", sound: "deltarune.ogg", fx: "spare" },
+    { name: "Celeste", img: "celeste.png", sound: "celeste.wav", fx: "ring" },
+    { name: "Hotline Miami", img: "hotline miami.png", sound: "hotline miami.wav", fx: "glitch" },
+    { name: "Stardew Valley", img: "stardew valley.png", sound: "stardew valley.wav", fx: "pickup" },
+    { name: "Papers, Please", img: "papers please.webp", sound: "papers please.mp3", fx: "stamp" },
+    { name: "It Takes Two", img: "it takes two.png", sound: "it takes two.mp3", fx: "split" },
+    { name: "Outcore", img: "outcore.png", sound: "outcore.mp3", fx: "warp" },
+    { name: "River City Girls", img: "river city girls.png", sound: "river city girls.wav", fx: "knockout" },
+    { name: "ULTRAKILL", img: "ultrakill.png", sound: "", fx: "splat" }
   ]
 };
 /* ================================== */
@@ -391,6 +467,295 @@ ls.forEach(l => {
 /* Contador local (por navegador) */
 try { const n = (+localStorage.getItem("kw_v") || 0) + 1; localStorage.setItem("kw_v", n);
   $("#vc").innerHTML = String(n).padStart(6, "0").split("").map(d => '<span class="dg">' + d + "</span>").join(""); } catch (e) {}
+
+/* ===== Easter egg: gato tramposo → juegos favoritos ===== */
+const egg = $("#egg"), eggbg = $("#eggbg"), egb = $("#egb"), egm = $("#egm"), egn = $("#egn"), egs = $("#egs");
+const LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let eggOK = false, phase = "cheat", bd = Array(9).fill(null), over = false, busy = false, botN = 0, tms = [];
+const eggA = [];
+try { eggOK = localStorage.getItem("kw_egg") === "1"; } catch (e) {}
+const eggLabel = () => { $("#egg-o").textContent = eggOK ? "juegos_fav/" : "???.exe"; };
+eggLabel();
+const later = (f, ms) => tms.push(setTimeout(f, ms));
+const clearTms = () => { tms.forEach(clearTimeout); tms = []; };
+const say = t => { egm.textContent = t; };
+const rnd = a => a[Math.random() * a.length | 0];
+const winOf = b => { for (const l of LINES) if (b[l[0]] && b[l[0]] === b[l[1]] && b[l[1]] === b[l[2]]) return { p: b[l[0]], l }; return null; };
+const laugh = () => [0, 1, 2, 3].forEach(i => tone(i % 2 ? 420 : 560, .09, "sawtooth", .04, i * .12));
+/* El rival: tu personaje en la penumbra (solo ojos y farol). Estados: sly, glee, ha, shock */
+const egf = $("#egf");
+$("#egf-img").src = $("#pfp").src;
+const mood = c => { egf.className = "foefig" + (c ? " " + c : ""); };
+
+/* Tablero */
+for (let i = 0; i < 9; i++) {
+  const c = document.createElement("button"); c.type = "button"; c.className = "cell";
+  c.onclick = e => { e.stopPropagation(); pick(i); };
+  egb.append(c);
+}
+const cells = [...egb.children];
+function render(hl = [], flip = -1) {
+  cells.forEach((c, i) => {
+    c.textContent = bd[i] || "";
+    c.className = "cell" + (bd[i] ? " " + bd[i].toLowerCase() : "") + (hl.includes(i) ? " hl" : "") + (i === flip ? " flip" : "");
+    c.setAttribute("aria-label", "fila " + ((i / 3 | 0) + 1) + ", columna " + (i % 3 + 1) + ": " + (bd[i] || "vacía"));
+  });
+}
+function newRound() {
+  clearTms(); $("#egg-t").textContent = "gato.exe";
+  $("#egg-game").hidden = false; $("#egg-box").hidden = true;
+  bd = Array(9).fill(null); over = false; busy = false; botN = 0; mood(); render();
+  say(phase === "cheat" ? "Tú eres X. Empiezas." : "Tú eres X. Empiezas. Ahora sí, en serio. 😌");
+}
+
+/* Minimax (O = bot) */
+function mm(b, t) {
+  const w = winOf(b); if (w) return w.p === "O" ? 1 : -1;
+  if (b.every(Boolean)) return 0;
+  let r = t === "O" ? -2 : 2;
+  for (let i = 0; i < 9; i++) if (!b[i]) { b[i] = t; const s = mm(b, t === "O" ? "X" : "O"); b[i] = null; r = t === "O" ? Math.max(r, s) : Math.min(r, s); }
+  return r;
+}
+function bestMove() {
+  let top = -2, mv = [];
+  for (let i = 0; i < 9; i++) if (!bd[i]) { bd[i] = "O"; const s = mm(bd, "X"); bd[i] = null; if (s > top) { top = s; mv = [i]; } else if (s === top) mv.push(i); }
+  return rnd(mv);
+}
+
+/* Turnos */
+function pick(i) {
+  if (busy || over || bd[i]) return;
+  bd[i] = "X"; tone(660, .06, "square", .05); render();
+  const w = winOf(bd);
+  if (w) return playerWins(w);
+  if (bd.every(Boolean)) return tie();
+  busy = true; mood("sly"); say("mmm… 🤔");
+  later(botTurn, 650);
+}
+function botTurn() {
+  if (phase === "cheat") { botN++; return botN === 1 ? honest() : cheat(); }
+  fair();
+}
+function honest() {
+  const free = bd[4] ? [0, 2, 6, 8].filter(i => !bd[i]) : [4];
+  bd[rnd(free)] = "O"; tone(440, .06, "square", .05); render(); busy = false; mood(); say("tu turno 🙂");
+}
+/* Primera partida: el bot "toma prestadas" tus X y completa su línea */
+function cheat() {
+  const o = bd.indexOf("O"), nx = l => l.filter(c => bd[c] === "X").length;
+  const cand = LINES.filter(l => l.includes(o)), withX = cand.filter(l => nx(l) > 0), pool = withX.length ? withX : cand;
+  const mn = Math.min(...pool.map(nx)), l = rnd(pool.filter(x => nx(x) === mn));
+  const todo = l.filter(c => bd[c] !== "O").sort((a, b) => (bd[a] ? 1 : 0) - (bd[b] ? 1 : 0));
+  say("mi turno… 🤔");
+  todo.forEach((c, k) => later(() => {
+    const steal = !!bd[c];
+    bd[c] = "O"; render([], c); tone(steal ? 300 : 440, .1, "sawtooth", .05);
+    say(steal ? "esta X… me la quedo 😇" : "aquí… ✍️");
+    if (k === todo.length - 1) later(() => cheatWin(l), 700);
+  }, 800 + k * 950));
+}
+function cheatWin(l) {
+  over = true; mood("glee"); render(l); say("¡TRES EN LÍNEA! 😎 gané"); [523, 659, 784].forEach((f, i) => tone(f, .12, "square", .05, i * .1));
+  later(() => { mood("glee ha"); say("jajajajaja 😂 es broma, es broma…"); laugh(); }, 1600);
+  later(() => { mood(); say("ahora sí, en serio. sin trampas."); phase = "fair"; }, 3400);
+  later(newRound, 5200);
+}
+/* Segunda partida en adelante: juega en serio (pero puede fallar) */
+function fair() {
+  const e = []; for (let i = 0; i < 9; i++) if (!bd[i]) e.push(i);
+  const tryWin = t => e.find(i => { bd[i] = t; const w = winOf(bd); bd[i] = null; return w; });
+  let m = tryWin("O"); if (m === undefined) m = tryWin("X");
+  if (m === undefined) m = Math.random() < (CFG.eggMistake ?? .4) ? rnd(e) : bestMove();
+  bd[m] = "O"; tone(440, .06, "square", .05); render();
+  const w = winOf(bd);
+  if (w) return botWins(w);
+  if (bd.every(Boolean)) return tie();
+  busy = false; mood(); say("tu turno 🙂");
+}
+function botWins(w) {
+  over = busy = true; mood("glee"); render(w.l); say("te gané limpio 😌 ¿revancha?"); [392, 330, 262].forEach((f, i) => tone(f, .14, "square", .05, i * .12));
+  later(newRound, 1900);
+}
+function tie() { over = busy = true; mood(); say("empate 🤝 una más."); later(newRound, 1500); }
+function playerWins(w) {
+  over = busy = true; mood("shock"); render(w.l); say("…ok. eso fue limpio 😳 me ganaste."); [659, 880, 1100].forEach((f, i) => tone(f, .12, "square", .05, i * .1));
+  later(() => say("desbloqueaste: juegos_fav/ 🎮"), 1600);
+  later(unlock, 3100);
+}
+function unlock() {
+  eggOK = true; try { localStorage.setItem("kw_egg", "1"); } catch (e) {}
+  eggLabel(); sBoot(); showBox();
+}
+
+/* Panel de juegos favoritos */
+const boxNote = () => { egn.textContent = muted ? "🔇 sonido: off. Ciérrame y actívalo en la barra de abajo para escucharlos." : "toca un ícono: suena… y desaparece."; };
+function showBox() {
+  clearTms(); $("#egg-game").hidden = true; $("#egg-box").hidden = false; $("#egg-t").textContent = "juegos_fav/";
+  if (!egs.children.length) buildGames();
+  boxNote();
+}
+function buildGames() {
+  egs.textContent = "";
+  CFG.games.forEach(g => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "egi"; b.setAttribute("aria-label", g.name);
+    const im = new Image(); im.alt = ""; im.draggable = false; im.src = encodeURI(g.img);
+    im.onerror = () => { im.remove(); b.append(g.name); };
+    b.append(im);
+    b.onclick = e => { e.stopPropagation(); hit(b, im, g); };
+    egs.append(b);
+  });
+}
+function eggSfx(file) {
+  if (muted) return;
+  if (!file) { tone(520, .08, "square", .05); tone(390, .16, "square", .05, .08); return; }
+  const a = new Audio(encodeURI(file)); a.volume = CFG.eggVolume ?? .7; eggA.push(a);
+  a.onpause = a.onended = () => { const k = eggA.indexOf(a); if (k > -1) eggA.splice(k, 1); };
+  a.play().catch(() => {});
+  setTimeout(() => {
+    if (a.paused) return;
+    const iv = setInterval(() => { a.volume = Math.max(0, a.volume - .07); if (a.volume <= 0) { a.pause(); clearInterval(iv); } }, 70);
+  }, (CFG.eggMaxSec ?? 8) * 1000);
+}
+
+/* Efectos de desaparición: cada juego se va a su manera */
+const anim = (el, k, o) => el.animate(k, { fill: "forwards", ...o });
+function burst(h, n, o) {
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("i"), s = o.size[0] + Math.random() * (o.size[1] - o.size[0]);
+    p.className = "pt";
+    p.style.cssText = "width:" + s + "px;height:" + s + "px;margin:" + (-s / 2) + "px 0 0 " + (-s / 2) + "px;background:" + o.colors[i % o.colors.length] + ";border-radius:" + (o.round ? "50%" : "0");
+    h.append(p);
+    const a = o.angle ? o.angle(i, n) : Math.random() * 6.283, d = o.dist * (.55 + Math.random() * .6);
+    const dx = Math.cos(a) * d, dy = Math.sin(a) * d + (o.fall || 0);
+    p.animate([{ transform: "translate(0,0) scale(1)", opacity: 1 }, { transform: "translate(" + dx + "px," + dy + "px) scale(" + (o.shrink ?? 1) + ")", opacity: 0 }],
+      { duration: o.dur * (.75 + Math.random() * .5), easing: "cubic-bezier(.15,.7,.35,1)", fill: "forwards" }).onfinish = () => p.remove();
+  }
+}
+const up = () => -Math.PI * (.1 + Math.random() * .8);
+const FX = {
+  fade: (b, im) => { anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 400 }); return 420; },
+  /* Undertale: polvo */
+  dust: (b, im) => {
+    anim(im, [{ opacity: 1, filter: "none", transform: "none" }, { opacity: 0, filter: "grayscale(1) brightness(1.8) blur(3px)", transform: "translate(10px,-12px)" }], { duration: 750, easing: "ease-in" });
+    burst(b, 30, { size: [2, 6], colors: ["#fff", "#cfcfcf", "#9a9a9a"], dist: 80, dur: 1000, angle: up });
+    return 1100;
+  },
+  /* Deltarune: destello al perdonar */
+  spare: (b, im) => {
+    anim(im, [{ filter: "brightness(1)", opacity: 1, transform: "scale(1)" }, { filter: "brightness(8)", opacity: 1, transform: "scale(1.1)", offset: .3 }, { filter: "brightness(8)", opacity: 0, transform: "scale(1.4)" }], { duration: 800 });
+    burst(b, 10, { size: [4, 8], colors: ["#fff", "#ffe14a", "#7fe3ff"], dist: 70, dur: 800 });
+    return 850;
+  },
+  /* Celeste: estallido de círculos */
+  ring: (b, im) => {
+    anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 40 });
+    burst(b, 8, { size: [10, 14], round: 1, colors: ["#ac3232", "#ff6b8b"], dist: 70, dur: 700, shrink: .3, angle: (i, n) => i / n * Math.PI * 2 });
+    return 800;
+  },
+  /* Hotline Miami: glitch neón */
+  glitch: (b, im) => {
+    anim(im, [
+      { transform: "none", filter: "none", opacity: 1 },
+      { transform: "translate(-7px,2px) skewX(10deg)", filter: "hue-rotate(90deg) saturate(4)", offset: .15 },
+      { transform: "translate(8px,-3px)", filter: "hue-rotate(250deg) saturate(4) contrast(2)", offset: .3 },
+      { transform: "scaleY(.1)", filter: "brightness(3)", offset: .45 },
+      { transform: "translate(-4px,0)", filter: "hue-rotate(160deg)", opacity: 1, offset: .6 },
+      { transform: "scaleX(1.3) scaleY(.02)", filter: "brightness(4)", opacity: 1, offset: .8 },
+      { transform: "scale(0)", opacity: 0 }], { duration: 650, easing: "steps(1,end)" });
+    return 700;
+  },
+  /* Stardew Valley: objeto recogido */
+  pickup: (b, im) => {
+    anim(im, [{ transform: "translateY(0) scale(1)", opacity: 1 }, { transform: "translateY(-14px) scale(1.2)", opacity: 1, offset: .35 }, { transform: "translateY(-56px) scale(.8)", opacity: 0 }], { duration: 800, easing: "ease-out" });
+    burst(b, 14, { size: [4, 7], colors: ["#ffe14a", "#fff2a8", "#ffb347"], dist: 60, dur: 800, angle: up });
+    return 900;
+  },
+  /* Papers, Please: sello de DENEGADO y el documento se devuelve */
+  stamp: (b, im) => {
+    const s = document.createElement("span"); s.className = "stamp"; s.textContent = "DENEGADO"; b.append(s);
+    anim(s, [{ transform: "translate(-50%,-50%) rotate(-14deg) scale(3)", opacity: 0 }, { transform: "translate(-50%,-50%) rotate(-14deg) scale(1)", opacity: 1, offset: .25 }, { transform: "translate(-50%,-50%) rotate(-14deg) scale(1)", opacity: 1 }], { duration: 500 });
+    anim(b, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .5 }, { transform: "translateX(70px) rotate(5deg)", opacity: 0 }], { duration: 1100, easing: "ease-in" });
+    return 1150;
+  },
+  /* It Takes Two: pantalla dividida */
+  split: (b, im) => {
+    const r = { l: im.offsetLeft, t: im.offsetTop, w: im.offsetWidth, h: im.offsetHeight };
+    const mk = (clip, dx, rot) => {
+      const c = im.cloneNode(); c.className = "half";
+      c.style.cssText = "position:absolute;left:" + r.l + "px;top:" + r.t + "px;width:" + r.w + "px;height:" + r.h + "px;max-width:none;max-height:none;clip-path:" + clip;
+      b.append(c);
+      anim(c, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .2 }, { transform: "translateX(" + dx + "px) rotate(" + rot + "deg)", opacity: 0 }], { duration: 900, easing: "ease-in" });
+    };
+    im.style.opacity = 0;
+    const ln = document.createElement("i"); ln.className = "pt";
+    ln.style.cssText = "width:3px;height:" + r.h + "px;margin:" + (-r.h / 2) + "px 0 0 -1.5px;background:#fff;box-shadow:0 0 8px #fff";
+    b.append(ln); anim(ln, [{ opacity: 1 }, { opacity: 0 }], { duration: 500 });
+    mk("inset(0 50% 0 0)", -70, -10); mk("inset(0 0 0 50%)", 70, 10);
+    return 950;
+  },
+  /* Outcore: teletransporte */
+  warp: (b, im) => {
+    anim(im, [{ transform: "scale(1,1)", filter: "brightness(1)", opacity: 1 }, { transform: "scale(.25,1.1)", filter: "brightness(3) hue-rotate(160deg)", opacity: 1, offset: .55 }, { transform: "scale(0,2.4)", filter: "brightness(6)", opacity: 0 }], { duration: 650, easing: "ease-in" });
+    burst(b, 12, { size: [2, 4], colors: ["#7fe3ff", "#fff"], dist: 60, dur: 700, angle: () => -Math.PI / 2 + (Math.random() - .5) * .6 });
+    return 750;
+  },
+  /* River City Girls: noqueado, gira y suelta monedas */
+  knockout: (b, im) => {
+    anim(im, [
+      { transform: "none", opacity: 1 },
+      { transform: "translate(14px,-26px) rotate(160deg)", opacity: .2, offset: .2 },
+      { transform: "translate(30px,-50px) rotate(320deg)", opacity: 1, offset: .4 },
+      { transform: "translate(48px,-70px) rotate(520deg)", opacity: .2, offset: .6 },
+      { transform: "translate(70px,-96px) rotate(720deg)", opacity: 1, offset: .8 },
+      { transform: "translate(95px,-130px) rotate(900deg)", opacity: 0 }], { duration: 950, easing: "linear" });
+    burst(b, 7, { size: [7, 10], round: 1, colors: ["#ffd24a", "#ffec9a"], dist: 50, dur: 900, fall: 70, angle: () => -Math.PI * (.2 + Math.random() * .6) });
+    return 1000;
+  },
+  /* ULTRAKILL: estallido rojo */
+  splat: (b, im) => {
+    anim(im, [{ transform: "scale(1)", filter: "none", opacity: 1 }, { transform: "scale(1.25)", filter: "brightness(2.2) saturate(2)", opacity: 1, offset: .2 }, { transform: "scale(.3)", filter: "brightness(1)", opacity: 0 }], { duration: 450, easing: "ease-out" });
+    burst(b, 26, { size: [3, 8], colors: ["#b3001b", "#ff2a2a", "#7a0010"], dist: 75, dur: 800, fall: 55 });
+    return 900;
+  }
+};
+function hit(b, im, g) {
+  if (b.dataset.gone) return;
+  b.dataset.gone = "1"; eggSfx(g.sound);
+  let ms;
+  if (matchMedia("(prefers-reduced-motion:reduce)").matches) { anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 200 }); ms = 220; }
+  else ms = (FX[g.fx] || FX.fade)(b, im);
+  b._t = setTimeout(() => {
+    b.classList.add("gone");
+    if (!egs.querySelector(".egi:not(.gone)")) egn.textContent = "vacío 😈 dale a «restaurar».";
+  }, ms);
+}
+function eggRestore() {
+  egs.querySelectorAll(".egi").forEach(b => {
+    clearTimeout(b._t);
+    b.getAnimations({ subtree: true }).forEach(a => a.cancel());
+    b.querySelectorAll(".pt,.stamp,.half").forEach(n => n.remove());
+    b.classList.remove("gone"); delete b.dataset.gone;
+    const im = b.querySelector("img"); if (im) im.style.cssText = "";
+  });
+  boxNote();
+}
+
+/* Abrir / cerrar */
+function eggOpen() {
+  egg.classList.add("on"); eggbg.classList.add("on");
+  if (eggOK) showBox(); else newRound();
+  egg.focus();
+}
+function eggClose() {
+  clearTms(); busy = false; eggA.slice().forEach(a => a.pause());
+  egg.classList.remove("on"); eggbg.classList.remove("on"); s0.focus();
+}
+$("#egg-o").onclick = e => { e.preventDefault(); sm.classList.remove("on"); s0.setAttribute("aria-expanded", "false"); eggOpen(); };
+$("#egg-x").onclick = eggClose;
+eggbg.onclick = eggClose;
+$("#egr").onclick = eggRestore;
+$("#egg2").onclick = () => { phase = "cheat"; newRound(); };
+document.addEventListener("keydown", e => { if (e.key === "Escape" && egg.classList.contains("on")) eggClose(); });
 </script>
 </body>
 </html>
