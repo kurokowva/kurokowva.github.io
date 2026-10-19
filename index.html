@@ -133,14 +133,19 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 .cell.flip{animation:flip .45s}
 @keyframes flip{50%{transform:rotateY(90deg)}}
 #egn{margin:0 0 12px}
-.eggs{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
-.egi{position:relative;display:grid;place-items:center;height:96px;padding:8px;cursor:pointer;background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;color:var(--ice);font:12px Tahoma,sans-serif}
-.egi img{max-width:100%;max-height:100%;object-fit:contain;display:block;pointer-events:none}
+.eggs{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px}
+.egi{position:relative;display:grid;place-items:center;height:112px;padding:10px;cursor:pointer;background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;color:var(--ice);font:12px Tahoma,sans-serif}
+.egi img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
 .egi:hover{outline:2px solid var(--lamp);outline-offset:-2px}
 .egi.gone{visibility:hidden}
 .pt{position:absolute;left:50%;top:50%;pointer-events:none;z-index:3}
 .stamp{position:absolute;left:50%;top:50%;z-index:4;pointer-events:none;padding:0 6px;color:#c8102e;border:3px solid #c8102e;background:#fff9;font:900 14px "Arial Black",Impact,sans-serif;letter-spacing:.08em}
 .half{pointer-events:none}
+#egg.wide{width:min(94vw,660px)}
+.cw{position:absolute;inset:3px;z-index:4;pointer-events:none;border:2px solid;border-color:#fff #404040 #404040 #fff;background:#c0c0c01a}
+.cw::before{content:"";display:block;height:12px;background:linear-gradient(90deg,#000080,#1084d0)}
+.cw::after{content:"✕";position:absolute;right:1px;top:1px;width:11px;height:9px;font:bold 7px/9px Tahoma,sans-serif;text-align:center;color:#000;background:#c0c0c0;border:1px solid;border-color:#fff #404040 #404040 #fff}
+.cw.p::after{border-color:#404040 #fff #fff #404040}
 .eggbar{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -272,20 +277,20 @@ const CFG = {
   // ===== Easter egg (menú Inicio → ???.exe): gato tramposo → juegos favoritos =====
   eggMistake: .4,  // fallos del bot en la partida "en serio": 0 = casi imposible de ganar, 1 = juega al azar
   eggMaxSec: 8,    // cada sonido se desvanece a los N segundos (por si el archivo es largo)
-  eggVolume: .7,   // volumen de los sonidos (0 a 1)
+  eggVolume: .3,   // volumen de los sonidos (0 a 1): .3 = 30%
   // Cada juego: imagen, sonido (déjalo "" si aún no lo tienes) y efecto de desaparición.
-  // Efectos: dust, spare, ring, glitch, pickup, stamp, split, warp, knockout, splat, fade
+  // Efectos: dust, spare, ring, glitch, poof, stamp, split, closewin, knockout, gib, fade
   games: [
     { name: "Undertale", img: "undertale.png", sound: "undertale.ogg", fx: "dust" },
     { name: "Deltarune", img: "deltarune.png", sound: "deltarune.ogg", fx: "spare" },
     { name: "Celeste", img: "celeste.png", sound: "celeste.wav", fx: "ring" },
     { name: "Hotline Miami", img: "hotline miami.png", sound: "hotline miami.wav", fx: "glitch" },
-    { name: "Stardew Valley", img: "stardew valley.png", sound: "stardew valley.wav", fx: "pickup" },
+    { name: "Stardew Valley", img: "stardew valley.png", sound: "stardew valley.wav", fx: "poof" },
     { name: "Papers, Please", img: "papers please.webp", sound: "papers please.mp3", fx: "stamp" },
     { name: "It Takes Two", img: "it takes two.png", sound: "it takes two.mp3", fx: "split" },
-    { name: "Outcore", img: "outcore.png", sound: "outcore.mp3", fx: "warp" },
+    { name: "Outcore", img: "outcore.png", sound: "outcore.mp3", fx: "closewin" },
     { name: "River City Girls", img: "river city girls.png", sound: "river city girls.wav", fx: "knockout" },
-    { name: "ULTRAKILL", img: "ultrakill.png", sound: "", fx: "splat" }
+    { name: "ULTRAKILL", img: "ultrakill.png", sound: "ultrakill.wav", fx: "gib" }
   ]
 };
 /* ================================== */
@@ -502,7 +507,7 @@ function render(hl = [], flip = -1) {
   });
 }
 function newRound() {
-  clearTms(); $("#egg-t").textContent = "gato.exe";
+  clearTms(); egg.classList.remove("wide"); $("#egg-t").textContent = "gato.exe";
   $("#egg-game").hidden = false; $("#egg-box").hidden = true;
   bd = Array(9).fill(null); over = false; busy = false; botN = 0; mood(); render();
   say(phase === "cheat" ? "Tú eres X. Empiezas." : "Tú eres X. Empiezas. Ahora sí, en serio. 😌");
@@ -590,7 +595,7 @@ function unlock() {
 /* Panel de juegos favoritos */
 const boxNote = () => { egn.textContent = muted ? "🔇 sonido: off. Ciérrame y actívalo en la barra de abajo para escucharlos." : "toca un ícono: suena… y desaparece."; };
 function showBox() {
-  clearTms(); $("#egg-game").hidden = true; $("#egg-box").hidden = false; $("#egg-t").textContent = "juegos_fav/";
+  clearTms(); egg.classList.add("wide"); $("#egg-game").hidden = true; $("#egg-box").hidden = false; $("#egg-t").textContent = "juegos_fav/";
   if (!egs.children.length) buildGames();
   boxNote();
 }
@@ -608,114 +613,151 @@ function buildGames() {
 function eggSfx(file) {
   if (muted) return;
   if (!file) { tone(520, .08, "square", .05); tone(390, .16, "square", .05, .08); return; }
-  const a = new Audio(encodeURI(file)); a.volume = CFG.eggVolume ?? .7; eggA.push(a);
+  const v0 = CFG.eggVolume ?? .3, a = new Audio(encodeURI(file)); a.volume = v0; eggA.push(a);
   a.onpause = a.onended = () => { const k = eggA.indexOf(a); if (k > -1) eggA.splice(k, 1); };
   a.play().catch(() => {});
   setTimeout(() => {
     if (a.paused) return;
-    const iv = setInterval(() => { a.volume = Math.max(0, a.volume - .07); if (a.volume <= 0) { a.pause(); clearInterval(iv); } }, 70);
+    const iv = setInterval(() => { a.volume = Math.max(0, a.volume - v0 / 14); if (a.volume <= 0) { a.pause(); clearInterval(iv); } }, 70);
   }, (CFG.eggMaxSec ?? 8) * 1000);
 }
 
 /* Efectos de desaparición: cada juego se va a su manera */
 const anim = (el, k, o) => el.animate(k, { fill: "forwards", ...o });
+/* Rectángulo real donde se dibuja la imagen (object-fit: contain), relativo al botón */
+function geo(b, im) {
+  const bw = im.offsetWidth, bh = im.offsetHeight, nw = im.naturalWidth || bw, nh = im.naturalHeight || bh, k = Math.min(bw / nw, bh / nh), w = nw * k, h = nh * k;
+  const l = im.offsetLeft + (bw - w) / 2, t = im.offsetTop + (bh - h) / 2;
+  return { l, t, w, h, bh, cx: l + w / 2 - b.clientWidth / 2, cy: t + h / 2 - b.clientHeight / 2 };
+}
+/* Partículas. Opciones: size, colors, dist, dur, round, fall, from/shrink (escala), exact, cx/cy (origen), ox/oy, delay, angle */
 function burst(h, n, o) {
   for (let i = 0; i < n; i++) {
     const p = document.createElement("i"), s = o.size[0] + Math.random() * (o.size[1] - o.size[0]);
     p.className = "pt";
     p.style.cssText = "width:" + s + "px;height:" + s + "px;margin:" + (-s / 2) + "px 0 0 " + (-s / 2) + "px;background:" + o.colors[i % o.colors.length] + ";border-radius:" + (o.round ? "50%" : "0");
     h.append(p);
-    const a = o.angle ? o.angle(i, n) : Math.random() * 6.283, d = o.dist * (.55 + Math.random() * .6);
-    const dx = Math.cos(a) * d, dy = Math.sin(a) * d + (o.fall || 0);
-    p.animate([{ transform: "translate(0,0) scale(1)", opacity: 1 }, { transform: "translate(" + dx + "px," + dy + "px) scale(" + (o.shrink ?? 1) + ")", opacity: 0 }],
-      { duration: o.dur * (.75 + Math.random() * .5), easing: "cubic-bezier(.15,.7,.35,1)", fill: "forwards" }).onfinish = () => p.remove();
+    const a = o.angle ? o.angle(i, n) : Math.random() * 6.283, d = o.exact ? o.dist : o.dist * (.55 + Math.random() * .6);
+    const x0 = (o.cx || 0) + (o.ox ? o.ox(i, n) : 0), y0 = (o.cy || 0) + (o.oy ? o.oy(i, n) : 0);
+    const x1 = x0 + Math.cos(a) * d, y1 = y0 + Math.sin(a) * d + (o.fall || 0);
+    const st = "translate(" + x0 + "px," + y0 + "px) scale(" + (o.from ?? 1) + ")";
+    p.animate([{ transform: st, opacity: 0 }, { transform: st, opacity: 1, offset: .08 }, { transform: "translate(" + x1 + "px," + y1 + "px) scale(" + (o.shrink ?? 1) + ")", opacity: 0 }],
+      { duration: o.dur * (.75 + Math.random() * .5), delay: o.delay ? o.delay(i, n) : 0, easing: "cubic-bezier(.15,.7,.35,1)", fill: "both" }).onfinish = () => p.remove();
   }
 }
 const up = () => -Math.PI * (.1 + Math.random() * .8);
+/* Copias de la imagen recortadas con clip-path (para partirla en pedazos) */
+function pieces(b, im, polys) {
+  const g = geo(b, im);
+  return polys.map(p => {
+    const c = im.cloneNode(); c.className = "half";
+    c.style.cssText = "position:absolute;left:" + g.l + "px;top:" + g.t + "px;width:" + g.w + "px;height:" + g.h + "px;max-width:none;max-height:none;object-fit:fill;clip-path:" + p;
+    b.append(c); return c;
+  });
+}
 const FX = {
   fade: (b, im) => { anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 400 }); return 420; },
-  /* Undertale: polvo */
+  /* Undertale: el monstruo se deshace en polvo gris, de arriba hacia abajo */
   dust: (b, im) => {
-    anim(im, [{ opacity: 1, filter: "none", transform: "none" }, { opacity: 0, filter: "grayscale(1) brightness(1.8) blur(3px)", transform: "translate(10px,-12px)" }], { duration: 750, easing: "ease-in" });
-    burst(b, 30, { size: [2, 6], colors: ["#fff", "#cfcfcf", "#9a9a9a"], dist: 80, dur: 1000, angle: up });
-    return 1100;
+    const g = geo(b, im), t0 = (g.bh - g.h) / 2;
+    anim(im, [{ clipPath: "inset(" + t0 + "px 0 0 0)", filter: "none" }, { clipPath: "inset(" + (t0 + g.h) + "px 0 0 0)", filter: "grayscale(1) brightness(1.3)" }], { duration: 1000, easing: "linear" });
+    burst(b, 44, { size: [2, 5], colors: ["#fff", "#d0d0d0", "#9a9a9a"], dist: 55, dur: 900, fall: -8, cx: g.cx, cy: g.cy,
+      ox: () => (Math.random() - .5) * g.w, oy: (i, n) => -g.h / 2 + g.h * i / n, delay: (i, n) => 1000 * i / n,
+      angle: () => -Math.PI * (.05 + Math.random() * .3) });
+    return 2100;
   },
-  /* Deltarune: destello al perdonar */
+  /* Deltarune: parpadea en blanco (4 cuadros, 0.6 s) y se desvanece al perdonarlo */
   spare: (b, im) => {
-    anim(im, [{ filter: "brightness(1)", opacity: 1, transform: "scale(1)" }, { filter: "brightness(8)", opacity: 1, transform: "scale(1.1)", offset: .3 }, { filter: "brightness(8)", opacity: 0, transform: "scale(1.4)" }], { duration: 800 });
-    burst(b, 10, { size: [4, 8], colors: ["#fff", "#ffe14a", "#7fe3ff"], dist: 70, dur: 800 });
-    return 850;
-  },
-  /* Celeste: estallido de círculos */
-  ring: (b, im) => {
-    anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 40 });
-    burst(b, 8, { size: [10, 14], round: 1, colors: ["#ac3232", "#ff6b8b"], dist: 70, dur: 700, shrink: .3, angle: (i, n) => i / n * Math.PI * 2 });
-    return 800;
-  },
-  /* Hotline Miami: glitch neón */
-  glitch: (b, im) => {
-    anim(im, [
-      { transform: "none", filter: "none", opacity: 1 },
-      { transform: "translate(-7px,2px) skewX(10deg)", filter: "hue-rotate(90deg) saturate(4)", offset: .15 },
-      { transform: "translate(8px,-3px)", filter: "hue-rotate(250deg) saturate(4) contrast(2)", offset: .3 },
-      { transform: "scaleY(.1)", filter: "brightness(3)", offset: .45 },
-      { transform: "translate(-4px,0)", filter: "hue-rotate(160deg)", opacity: 1, offset: .6 },
-      { transform: "scaleX(1.3) scaleY(.02)", filter: "brightness(4)", opacity: 1, offset: .8 },
-      { transform: "scale(0)", opacity: 0 }], { duration: 650, easing: "steps(1,end)" });
-    return 700;
-  },
-  /* Stardew Valley: objeto recogido */
-  pickup: (b, im) => {
-    anim(im, [{ transform: "translateY(0) scale(1)", opacity: 1 }, { transform: "translateY(-14px) scale(1.2)", opacity: 1, offset: .35 }, { transform: "translateY(-56px) scale(.8)", opacity: 0 }], { duration: 800, easing: "ease-out" });
-    burst(b, 14, { size: [4, 7], colors: ["#ffe14a", "#fff2a8", "#ffb347"], dist: 60, dur: 800, angle: up });
-    return 900;
-  },
-  /* Papers, Please: sello de DENEGADO y el documento se devuelve */
-  stamp: (b, im) => {
-    const s = document.createElement("span"); s.className = "stamp"; s.textContent = "DENEGADO"; b.append(s);
-    anim(s, [{ transform: "translate(-50%,-50%) rotate(-14deg) scale(3)", opacity: 0 }, { transform: "translate(-50%,-50%) rotate(-14deg) scale(1)", opacity: 1, offset: .25 }, { transform: "translate(-50%,-50%) rotate(-14deg) scale(1)", opacity: 1 }], { duration: 500 });
-    anim(b, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .5 }, { transform: "translateX(70px) rotate(5deg)", opacity: 0 }], { duration: 1100, easing: "ease-in" });
-    return 1150;
-  },
-  /* It Takes Two: pantalla dividida */
-  split: (b, im) => {
-    const r = { l: im.offsetLeft, t: im.offsetTop, w: im.offsetWidth, h: im.offsetHeight };
-    const mk = (clip, dx, rot) => {
-      const c = im.cloneNode(); c.className = "half";
-      c.style.cssText = "position:absolute;left:" + r.l + "px;top:" + r.t + "px;width:" + r.w + "px;height:" + r.h + "px;max-width:none;max-height:none;clip-path:" + clip;
-      b.append(c);
-      anim(c, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .2 }, { transform: "translateX(" + dx + "px) rotate(" + rot + "deg)", opacity: 0 }], { duration: 900, easing: "ease-in" });
-    };
-    im.style.opacity = 0;
-    const ln = document.createElement("i"); ln.className = "pt";
-    ln.style.cssText = "width:3px;height:" + r.h + "px;margin:" + (-r.h / 2) + "px 0 0 -1.5px;background:#fff;box-shadow:0 0 8px #fff";
-    b.append(ln); anim(ln, [{ opacity: 1 }, { opacity: 0 }], { duration: 500 });
-    mk("inset(0 50% 0 0)", -70, -10); mk("inset(0 0 0 50%)", 70, 10);
+    const w = { filter: "brightness(3) saturate(0)" }, n = { filter: "none" };
+    anim(im, [{ ...n, offset: 0 }, { ...w, offset: .25 }, { ...n, offset: .5 }, { ...w, offset: .75 }, { ...w, offset: 1 }], { duration: 600, easing: "steps(1,end)" });
+    anim(im, [{ opacity: 1 }, { opacity: 0 }], { duration: 300, delay: 600 });
     return 950;
   },
-  /* Outcore: teletransporte */
-  warp: (b, im) => {
-    anim(im, [{ transform: "scale(1,1)", filter: "brightness(1)", opacity: 1 }, { transform: "scale(.25,1.1)", filter: "brightness(3) hue-rotate(160deg)", opacity: 1, offset: .55 }, { transform: "scale(0,2.4)", filter: "brightness(6)", opacity: 0 }], { duration: 650, easing: "ease-in" });
-    burst(b, 12, { size: [2, 4], colors: ["#7fe3ff", "#fff"], dist: 60, dur: 700, angle: () => -Math.PI / 2 + (Math.random() - .5) * .6 });
-    return 750;
+  /* Celeste: destello y 8 círculos en anillo que se expanden y se encogen (la muerte de Madeline) */
+  ring: (b, im) => {
+    const g = geo(b, im);
+    anim(im, [{ filter: "none", opacity: 1 }, { filter: "brightness(4)", opacity: 1, offset: .5 }, { filter: "brightness(4)", opacity: 0 }], { duration: 90 });
+    burst(b, 8, { size: [12, 12], round: 1, exact: 1, colors: ["#d94a4a"], dist: 70, dur: 700, shrink: .3, cx: g.cx, cy: g.cy, delay: () => 80, angle: (i, n) => i / n * Math.PI * 2 });
+    return 950;
   },
-  /* River City Girls: noqueado, gira y suelta monedas */
-  knockout: (b, im) => {
+  /* Hotline Miami: distorsión de VHS con separación rosa/cian y barra de tracking */
+  glitch: (b, im) => {
+    const ch = (a, c) => "drop-shadow(" + a + "px 0 #00e5ff) drop-shadow(" + -a + "px 0 #ff2bd6)" + (c ? " " + c : "");
     anim(im, [
-      { transform: "none", opacity: 1 },
-      { transform: "translate(14px,-26px) rotate(160deg)", opacity: .2, offset: .2 },
-      { transform: "translate(30px,-50px) rotate(320deg)", opacity: 1, offset: .4 },
-      { transform: "translate(48px,-70px) rotate(520deg)", opacity: .2, offset: .6 },
-      { transform: "translate(70px,-96px) rotate(720deg)", opacity: 1, offset: .8 },
-      { transform: "translate(95px,-130px) rotate(900deg)", opacity: 0 }], { duration: 950, easing: "linear" });
-    burst(b, 7, { size: [7, 10], round: 1, colors: ["#ffd24a", "#ffec9a"], dist: 50, dur: 900, fall: 70, angle: () => -Math.PI * (.2 + Math.random() * .6) });
-    return 1000;
+      { transform: "none", filter: "none", opacity: 1 },
+      { transform: "translateX(-6px)", filter: ch(5), offset: .12 },
+      { transform: "translateX(7px) skewX(-8deg)", filter: ch(-6, "brightness(1.4)"), offset: .26 },
+      { transform: "translateX(-3px)", filter: ch(4, "contrast(1.6)"), offset: .4 },
+      { transform: "translateX(9px) scaleY(.6)", filter: ch(8, "brightness(2)"), offset: .55 },
+      { transform: "scale(1.2,.04)", filter: "brightness(4)", offset: .75 },
+      { transform: "scale(0,.02)", opacity: 0 }], { duration: 700, easing: "steps(1,end)" });
+    const bar = document.createElement("i"); bar.className = "pt";
+    bar.style.cssText = "left:0;top:0;width:100%;height:9px;margin:0;background:#ffffff55";
+    b.append(bar);
+    anim(bar, [{ transform: "translateY(0)", opacity: 1 }, { transform: "translateY(" + b.clientHeight + "px)", opacity: 1 }], { duration: 600, easing: "steps(12,end)" });
+    return 760;
   },
-  /* ULTRAKILL: estallido rojo */
-  splat: (b, im) => {
-    anim(im, [{ transform: "scale(1)", filter: "none", opacity: 1 }, { transform: "scale(1.25)", filter: "brightness(2.2) saturate(2)", opacity: 1, offset: .2 }, { transform: "scale(.3)", filter: "brightness(1)", opacity: 0 }], { duration: 450, easing: "ease-out" });
-    burst(b, 26, { size: [3, 8], colors: ["#b3001b", "#ff2a2a", "#7a0010"], dist: 75, dur: 800, fall: 55 });
-    return 900;
+  /* Stardew Valley: "puf" de humo al derrotar a un monstruo y suelta un par de objetos */
+  poof: (b, im) => {
+    const g = geo(b, im);
+    anim(im, [{ transform: "scale(1)", opacity: 1 }, { transform: "scale(.7,1.15)", opacity: 1, offset: .25 }, { transform: "scale(.1)", opacity: 0 }], { duration: 380, easing: "ease-in" });
+    burst(b, 8, { size: [16, 26], round: 1, colors: ["#f4f4ee", "#d8d8cf", "#bdbdb2"], dist: 34, dur: 650, from: .4, shrink: 1.8, cx: g.cx, cy: g.cy, delay: () => 120 });
+    burst(b, 4, { size: [5, 7], colors: ["#ffe14a", "#8fd14f"], dist: 40, dur: 700, fall: 36, cx: g.cx, cy: g.cy, delay: () => 160, angle: up });
+    return 950;
+  },
+  /* Papers, Please: sello rojo de DENIED (como en el juego) y el documento se devuelve */
+  stamp: (b, im) => {
+    const s = document.createElement("span"); s.className = "stamp"; s.textContent = "DENIED"; b.append(s);
+    const r = "translate(-50%,-50%) rotate(-12deg)";
+    anim(s, [{ transform: r + " scale(3)", opacity: 0 }, { transform: r + " scale(1)", opacity: 1, offset: .25 }, { transform: r + " scale(1)", opacity: 1 }], { duration: 400 });
+    anim(b, [{ transform: "none", opacity: 1, offset: 0 }, { transform: "none", offset: .07 }, { transform: "translateY(3px)", offset: .1 }, { transform: "none", offset: .16 },
+      { transform: "none", opacity: 1, offset: .5 }, { transform: "translateX(70px) rotate(5deg)", opacity: 0, offset: 1 }], { duration: 1100 });
+    return 1150;
+  },
+  /* It Takes Two: pantalla dividida con la línea diagonal, cada mitad se va por su lado */
+  split: (b, im) => {
+    const g = geo(b, im), [l, r] = pieces(b, im, ["polygon(0 0,56% 0,44% 100%,0 100%)", "polygon(56% 0,100% 0,100% 100%,44% 100%)"]);
+    im.style.opacity = 0;
+    anim(l, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .15 }, { transform: "translateX(-64px) rotate(-8deg)", opacity: 0 }], { duration: 900, easing: "ease-in" });
+    anim(r, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .15 }, { transform: "translateX(64px) rotate(8deg)", opacity: 0 }], { duration: 900, easing: "ease-in" });
+    const ln = document.createElement("i"); ln.className = "pt";
+    ln.style.cssText = "left:" + (g.l + g.w / 2) + "px;top:" + (g.t + g.h / 2) + "px;width:3px;height:" + g.h * 1.1 + "px;margin:" + (-g.h * .55) + "px 0 0 -1.5px;background:#fff;box-shadow:0 0 8px #fff;rotate:" + (Math.atan(.12 * g.w / g.h) * 180 / Math.PI) + "deg";
+    b.append(ln); anim(ln, [{ opacity: 1 }, { opacity: 0 }], { duration: 500 });
+    return 950;
+  },
+  /* Outcore: una ventana falsa de Windows se abre alrededor, se pulsa la ✕ y se cierra */
+  closewin: (b, im) => {
+    const w = document.createElement("div"); w.className = "cw"; b.append(w);
+    anim(w, [{ transform: "scale(.85)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }], { duration: 160, easing: "steps(3,end)" });
+    setTimeout(() => w.classList.add("p"), 300);
+    anim(b, [{ transform: "none", opacity: 1 }, { transform: "none", opacity: 1, offset: .5 }, { transform: "translateY(40px) scale(.02)", opacity: 0 }], { duration: 760, easing: "steps(6,end)" });
+    return 800;
+  },
+  /* River City Girls: lo noquean, cae al piso, parpadea y se esfuma soltando monedas */
+  knockout: (b, im) => {
+    const g = geo(b, im);
+    const f = (x, y, r, o, off) => ({ transform: "translate(" + x + "px," + y + "px) rotate(" + r + "deg)", opacity: o, offset: off });
+    anim(im, [f(0, 0, 0, 1, 0), f(0, 0, 0, 1, .06), f(34, -24, 40, 1, .24), f(52, 6, 90, 1, .38), f(52, 6, 90, .15, .46), f(52, 6, 90, 1, .54),
+      f(52, 6, 90, .15, .62), f(52, 6, 90, 1, .7), f(52, 6, 90, .15, .78), f(52, 6, 90, 1, .86), f(52, 6, 90, 0, 1)], { duration: 1300, easing: "linear" });
+    burst(b, 7, { size: [7, 10], round: 1, colors: ["#ffd24a", "#ffec9a"], dist: 45, dur: 700, fall: 60, cx: g.cx + 52, cy: g.cy + 6, delay: () => 480, angle: () => -Math.PI * (.2 + Math.random() * .6) });
+    return 1350;
+  },
+  /* ULTRAKILL: pausa de impacto, el logo estalla en pedazos y suelta sangre */
+  gib: (b, im) => {
+    const g = geo(b, im);
+    const ctr = [[18, 26], [55, 25], [87, 25], [17, 76], [52, 77], [84, 76]];
+    const ps = pieces(b, im, [
+      "polygon(0 0,35% 0,40% 55%,0 50%)", "polygon(35% 0,70% 0,75% 45%,40% 55%)", "polygon(70% 0,100% 0,100% 50%,75% 45%)",
+      "polygon(0 50%,40% 55%,30% 100%,0 100%)", "polygon(40% 55%,75% 45%,65% 100%,30% 100%)", "polygon(75% 45%,100% 50%,100% 100%,65% 100%)"]);
+    im.style.opacity = 0;
+    ps.forEach((c, i) => {
+      const vx = ctr[i][0] - 50, vy = ctr[i][1] - 50, m = Math.hypot(vx, vy) || 1, d = 70 + Math.random() * 40;
+      const dx = vx / m * d, dy = vy / m * d + 30, rot = (Math.random() < .5 ? -1 : 1) * (120 + Math.random() * 200);
+      anim(c, [{ transform: "none", opacity: 1 }, { transform: "scale(1.06)", opacity: 1, offset: .15 }, { transform: "translate(" + dx + "px," + dy + "px) rotate(" + rot + "deg)", opacity: 0 }], { duration: 900, easing: "ease-out" });
+    });
+    anim(b, [{ backgroundColor: "#7a0010" }, { backgroundColor: "#0a1a2b" }], { duration: 500, delay: 130, fill: "none" });
+    burst(b, 30, { size: [3, 8], colors: ["#b3001b", "#ff2a2a", "#7a0010"], dist: 80, dur: 800, fall: 55, cx: g.cx, cy: g.cy, delay: () => 130 });
+    return 1100;
   }
 };
 function hit(b, im, g) {
@@ -733,7 +775,7 @@ function eggRestore() {
   egs.querySelectorAll(".egi").forEach(b => {
     clearTimeout(b._t);
     b.getAnimations({ subtree: true }).forEach(a => a.cancel());
-    b.querySelectorAll(".pt,.stamp,.half").forEach(n => n.remove());
+    b.querySelectorAll(".pt,.stamp,.half,.cw").forEach(n => n.remove());
     b.classList.remove("gone"); delete b.dataset.gone;
     const im = b.querySelector("img"); if (im) im.style.cssText = "";
   });
