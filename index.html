@@ -70,10 +70,14 @@ h1 b{color:var(--royal)}
 .sunk .note{color:#9fc4d6}
 .tracks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
 .track strong{display:block;color:#fff}.track small{display:block;color:#9fc4d6;margin-bottom:8px}
-.works{display:grid;gap:10px}
+.works{display:grid;grid-template-columns:repeat(auto-fill,190px);justify-content:start;gap:12px}
 .work{display:block;text-decoration:none;color:var(--ice);background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;padding:10px 12px}
 .work:hover{outline:2px solid var(--lamp);outline-offset:-2px}
 .work strong{color:#fff}.work small{color:#9fc4d6;display:block}
+.work.big{display:flex;flex-direction:column;align-items:center;text-align:center;padding:16px 10px 12px}
+.work.big img{display:block;width:144px;height:144px;max-width:100%;object-fit:cover;margin:0 0 10px;border:2px solid #1a3550}
+.work.big strong{font-size:16px;overflow-wrap:anywhere}
+.work.big small{overflow-wrap:anywhere}
 .uc{text-align:center;padding:10px 0}
 .uc .em{font-size:3.4rem;line-height:1;display:block}
 .uc .stripe{height:14px;max-width:340px;margin:10px auto;border:2px solid #000;background:repeating-linear-gradient(-45deg,#ffd400 0 14px,#000 14px 28px)}
@@ -169,7 +173,7 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
         <p class="sub">Voice over e ing. de audio · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
         <p class="stat">● disponible para audiciones</p>
-        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a> <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a></div>
+        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a> <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a> <a class="btn" href="#covers">covers</a></div>
     </div></section>
 
   <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
@@ -192,6 +196,9 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
   <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="tracks" id="ta"></div></div></section>
 
+  <section class="win wide" id="covers"><div class="tb"><span>covers/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+    <div class="body"><div class="tracks" id="tc"></div></div></section>
+
   <section class="win wide" id="colaboraciones"><div class="tb"><span>colaboraciones/</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="works" id="wk"></div></div></section>
 
@@ -204,7 +211,7 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 <footer>Kuroko_W · mejor visto en 800×600 · visitante nº <span id="vc"></span></footer>
 
 <nav id="sm" aria-label="Menú de inicio">
-  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
+  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#covers">covers/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
 </nav>
 
 <div id="eggbg"></div>
@@ -252,9 +259,17 @@ const CFG = {
     { title: "SFX 1", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX.mp3" },
     { title: "SFX 2", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX_2.mp3" }
   ],
+  // Covers: mezcla, remix y composición por ti. Los archivos van junto a index.html.
+  covers: [
+    { title: "No Hay Arreglo", desc: "Cover de FNAFHS · voz: Shouko · mezcla, remix y composición: Kuroko_W", file: "No Hay Arreglo Shouko Cover.mp3" },
+    { title: "California", desc: "Cover de Los Vaguens · voz: Shouko · mezcla, remix y composición: Kuroko_W", file: "California Ardilla.wav" }
+  ],
   // Colaboraciones: proyectos en los que has participado (url es opcional)
-  // Ejemplo: { title: "Nombre del proyecto", role: "Tu papel", url: "https://..." }
-  collabs: [],
+  // Ejemplo: { title: "Nombre del proyecto", role: "Tu papel", url: "https://...", img: "imagen.png" }
+  // Si llevan img se muestran como ícono grande; sin img, como tarjeta de texto.
+  collabs: [
+    { title: "ShoukoOwO", role: "Voz en los covers", url: "https://shoukoowo.github.io/", img: "shoukoowo.png" }
+  ],
   // Equipo y condiciones de trabajo
   setup: [
     ["Micrófono", "BY-M1 Pro II"],
@@ -435,6 +450,7 @@ function renderTracks(list, root) {
 }
 renderTracks(CFG.voiceover, $("#tv"));
 renderTracks(CFG.audioeng, $("#ta"));
+renderTracks(CFG.covers, $("#tc"));
 
 /* Contacto */
 const ml = $("#ml"); ml.href = "mailto:" + CFG.email; ml.textContent = CFG.email;
@@ -449,8 +465,13 @@ function host(u) { try { return new URL(u).hostname.replace("www.", ""); } catch
     return;
   }
   C.forEach(c => {
-    const el = document.createElement(c.url ? "a" : "div"); el.className = "work";
+    const el = document.createElement(c.url ? "a" : "div"); el.className = "work" + (c.img ? " big" : "");
     if (c.url) { el.href = c.url; el.target = "_blank"; el.rel = "noopener noreferrer"; }
+    if (c.img) {
+      const im = new Image(); im.alt = ""; im.width = 144; im.height = 144; im.draggable = false; im.src = encodeURI(c.img);
+      im.onerror = () => { im.remove(); el.classList.remove("big"); };
+      el.append(im);
+    }
     const t = document.createElement("strong"); t.textContent = c.title;
     const r = document.createElement("small"); r.textContent = [c.role, c.url ? host(c.url) : ""].filter(Boolean).join(" · ");
     el.append(t, r); root.append(el);
