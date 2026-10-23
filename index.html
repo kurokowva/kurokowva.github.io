@@ -78,6 +78,9 @@ h1 b{color:var(--royal)}
 .work.big img{display:block;width:144px;height:144px;max-width:100%;object-fit:cover;margin:0 0 10px;border:2px solid #1a3550}
 .work.big strong{font-size:16px;overflow-wrap:anywhere}
 .work.big small{overflow-wrap:anywhere}
+.wl{display:flex;flex-direction:column;align-items:center;color:#fff;text-decoration:none}
+.wlinks{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.wlinks .btn{margin:0;padding:3px 10px;font-size:13px}
 .uc{text-align:center;padding:10px 0}
 .uc .em{font-size:3.4rem;line-height:1;display:block}
 .uc .stripe{height:14px;max-width:340px;margin:10px auto;border:2px solid #000;background:repeating-linear-gradient(-45deg,#ffd400 0 14px,#000 14px 28px)}
@@ -268,7 +271,12 @@ const CFG = {
   // Ejemplo: { title: "Nombre del proyecto", role: "Tu papel", url: "https://...", img: "imagen.png" }
   // Si llevan img se muestran como ícono grande; sin img, como tarjeta de texto.
   collabs: [
-    { title: "ShoukoOwO", role: "Voz en los covers", url: "https://shoukoowo.github.io/", img: "shoukoowo.png" }
+    { title: "ShoukoOwO", role: "Voz en los covers", url: "https://shoukoowo.github.io/", img: "shoukoowo.png" },
+    // Con varios enlaces se usa links en lugar de url
+    { title: "MG:VA production", role: "SFX y mezcla", img: "mgva.jpg", links: [
+      { label: "YouTube", url: "https://www.youtube.com/@MGVAproduction" },
+      { label: "TikTok", url: "https://www.tiktok.com/@va_mg_offical" }
+    ] }
   ],
   // Equipo y condiciones de trabajo
   setup: [
@@ -465,16 +473,27 @@ function host(u) { try { return new URL(u).hostname.replace("www.", ""); } catch
     return;
   }
   C.forEach(c => {
-    const el = document.createElement(c.url ? "a" : "div"); el.className = "work" + (c.img ? " big" : "");
-    if (c.url) { el.href = c.url; el.target = "_blank"; el.rel = "noopener noreferrer"; }
+    const multi = Array.isArray(c.links) && c.links.length > 0, ext = (a, u) => { a.href = u; a.target = "_blank"; a.rel = "noopener noreferrer"; };
+    const el = document.createElement(c.url && !multi ? "a" : "div"); el.className = "work" + (c.img ? " big" : "");
+    if (c.url && !multi) ext(el, c.url);
+    /* Con varios enlaces (links), la imagen y el nombre llevan al primero y abajo van los botones */
+    let holder = el;
+    if (multi) { holder = document.createElement("a"); holder.className = "wl"; ext(holder, c.links[0].url); el.append(holder); }
     if (c.img) {
       const im = new Image(); im.alt = ""; im.width = 144; im.height = 144; im.draggable = false; im.src = encodeURI(c.img);
       im.onerror = () => { im.remove(); el.classList.remove("big"); };
-      el.append(im);
+      holder.append(im);
     }
     const t = document.createElement("strong"); t.textContent = c.title;
-    const r = document.createElement("small"); r.textContent = [c.role, c.url ? host(c.url) : ""].filter(Boolean).join(" · ");
-    el.append(t, r); root.append(el);
+    const r = document.createElement("small"); r.textContent = multi ? (c.role || "") : [c.role, c.url ? host(c.url) : ""].filter(Boolean).join(" · ");
+    holder.append(t);
+    if (multi) {
+      el.append(r);
+      const row = document.createElement("div"); row.className = "wlinks";
+      c.links.forEach(l => { const a = document.createElement("a"); a.className = "btn"; a.textContent = l.label; ext(a, l.url); row.append(a); });
+      el.append(row);
+    } else holder.append(r);
+    root.append(el);
   });
 })();
 
