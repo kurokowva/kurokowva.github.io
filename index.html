@@ -94,7 +94,28 @@ ul.l li span+span{color:#3a3a46;text-align:right}
 .b88{min-width:88px;min-height:31px;padding:0 8px;display:grid;place-items:center;font-size:11px;text-decoration:none;color:var(--ice);background:#000;border:1px solid var(--lamp)}
 a.b88:hover{background:var(--lamp);color:#000}
 footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-size:12px;text-align:center}
-.dg{display:inline-block;background:#000;color:#7dffb0;font:bold 13px "Lucida Console",monospace;padding:1px 4px;margin:0 1px;border:1px solid #404040}
+/* Contador en construcción (broma): stickmen trabajando */
+.cons{width:320px;max-width:100%;margin:14px auto 0}
+.cons svg{display:block;width:100%;height:auto;overflow:visible}
+.cons .st{fill:none;stroke:var(--ice);stroke-width:2.2;stroke-linecap:round}
+.cbar{height:22px;border:2px solid #000;background:repeating-linear-gradient(-45deg,#ffd400 0 14px,#000 14px 28px);display:grid;place-items:center}
+.cbar span{background:#000;color:#ffd400;font:bold 11px/1 "Lucida Console","Courier New",monospace;letter-spacing:.12em;padding:2px 8px;animation:bk 1.4s steps(1) infinite}
+@keyframes hm{0%,100%{transform:rotate(-75deg)}45%,60%{transform:rotate(28deg)}}
+@keyframes sq{0%,40%,70%,100%{transform:scaleY(1)}45%{transform:scaleY(.82)}}
+@keyframes bobk{to{transform:translateY(-2px)}}
+@keyframes sw{from{transform:rotate(-26deg)}to{transform:rotate(26deg)}}
+@keyframes tp{to{transform:rotate(-20deg)}}
+@keyframes wv2{from{transform:rotate(-12deg)}to{transform:rotate(14deg)}}
+@keyframes sy{0%,28%{opacity:1}30%,100%{opacity:0}}
+.hm{transform-origin:50px 68px;animation:hm .9s cubic-bezier(.5,0,.8,.4) infinite}
+.blk{transform-origin:71px 98px;animation:sq .9s infinite}
+.bob{animation:bobk .35s ease-in-out infinite alternate}
+.lg1,.lg2{transform-origin:150px 80px;animation:sw .35s ease-in-out infinite alternate}
+.lg2{animation-delay:-.35s}
+.tap{transform-origin:266px 80px;animation:tp .4s ease-in infinite alternate}
+.arm2{transform-origin:266px 68px;animation:wv2 .6s ease-in-out infinite alternate}
+.sy{opacity:0;animation:sy 9s infinite}
+.sy1{opacity:1}.sy2{animation-delay:-6s}.sy3{animation-delay:-3s}
 #tk{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--gray);border-top:2px solid #fff;padding:4px 6px calc(4px + env(safe-area-inset-bottom,0))}
 #tk .btn{margin:0}
 #st0{font-weight:bold;display:flex;align-items:center;gap:6px}
@@ -211,7 +232,44 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
   <section class="win" id="redes"><div class="tb"><span>redes.lnk</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="badges" id="bd"></div></div></section>
 </main>
-<footer>Kuroko_W · mejor visto en 800×600 · visitante nº <span id="vc"></span></footer>
+<footer>Kuroko_W · mejor visto en 800×600
+  <div class="cons" role="img" aria-label="Contador de visitas en construcción: unos stickmen están trabajando en ello.">
+    <svg viewBox="0 0 320 100" aria-hidden="true" focusable="false">
+      <!-- A: martilla el cero -->
+      <g class="st">
+        <circle cx="50" cy="57" r="7"/>
+        <path d="M50 64V80M50 80L43 98M50 80L57 98M50 68L41 76"/>
+        <g class="hm"><path d="M50 68L62 74L71 78.5"/><path d="M69.5 76L73 82" style="stroke:#c0c0c0;stroke-width:5;stroke-linecap:butt"/></g>
+      </g>
+      <path d="M42 54a8 8 0 0 1 16 0z" fill="#ffd400"/><rect x="40" y="53" width="20" height="2.5" fill="#ffd400"/>
+      <g class="blk"><rect x="62" y="87" width="18" height="11" fill="#ffd400" stroke="#000" stroke-width="1"/><text x="71" y="96" text-anchor="middle" font-size="9" font-weight="700" fill="#000" font-family="Lucida Console,Courier New,monospace">0</text></g>
+      <!-- B: carga el siete y no sabe dónde ponerlo -->
+      <g class="bob">
+        <g class="st">
+          <circle cx="150" cy="57" r="7"/>
+          <path d="M150 64V80M150 68L139 45M150 68L161 45"/>
+          <g class="lg1"><path d="M150 80V98"/></g><g class="lg2"><path d="M150 80V98"/></g>
+        </g>
+        <path d="M142 54a8 8 0 0 1 16 0z" fill="#ffd400"/><rect x="140" y="53" width="20" height="2.5" fill="#ffd400"/>
+        <rect x="138" y="30" width="24" height="15" fill="#ffd400" stroke="#000" stroke-width="1"/><text x="150" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#000" font-family="Lucida Console,Courier New,monospace">7</text>
+      </g>
+      <!-- C: el jefe con su tablita -->
+      <g class="st">
+        <circle cx="266" cy="57" r="7"/>
+        <path d="M266 64V80M266 80L259 98M266 68L258 76"/>
+        <g class="tap"><path d="M266 80L274 98"/></g>
+        <g class="arm2"><path d="M266 68L277 60"/></g>
+      </g>
+      <path d="M258 54a8 8 0 0 1 16 0z" fill="#ffffff"/><rect x="256" y="53" width="20" height="2.5" fill="#ffffff"/>
+      <rect x="248" y="68" width="12" height="16" fill="#fffde0" stroke="#000" stroke-width="1"/><path d="M251 73H257M251 77H257M251 81H255" stroke="#000" stroke-width="1"/>
+      <!-- globos de diálogo -->
+      <g class="sy sy1"><rect x="176" y="2" width="140" height="20" fill="#fffde0" stroke="#000"/><path d="M256 22L266 22L264 31z" fill="#fffde0" stroke="#000"/><rect x="255" y="21" width="12" height="2" fill="#fffde0"/><text x="246" y="16" text-anchor="middle" font-size="9.5" fill="#000" font-family="Tahoma,Verdana,sans-serif">¡ya casi lo terminamos!</text></g>
+      <g class="sy sy2"><rect x="176" y="2" width="140" height="20" fill="#fffde0" stroke="#000"/><path d="M256 22L266 22L264 31z" fill="#fffde0" stroke="#000"/><rect x="255" y="21" width="12" height="2" fill="#fffde0"/><text x="246" y="16" text-anchor="middle" font-size="9.5" fill="#000" font-family="Tahoma,Verdana,sans-serif">¿alguien vio el número 7?</text></g>
+      <g class="sy sy3"><rect x="176" y="2" width="140" height="20" fill="#fffde0" stroke="#000"/><path d="M256 22L266 22L264 31z" fill="#fffde0" stroke="#000"/><rect x="255" y="21" width="12" height="2" fill="#fffde0"/><text x="246" y="16" text-anchor="middle" font-size="9.5" fill="#000" font-family="Tahoma,Verdana,sans-serif">pa' mañana queda, jefe.</text></g>
+    </svg>
+    <div class="cbar"><span>VISITANTE Nº · EN CONSTRUCCIÓN</span></div>
+  </div>
+</footer>
 
 <nav id="sm" aria-label="Menú de inicio">
   <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#covers">covers/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
@@ -511,9 +569,8 @@ ls.forEach(l => {
   $("#bd").append(el);
 });
 
-/* Contador local (por navegador) */
-try { const n = (+localStorage.getItem("kw_v") || 0) + 1; localStorage.setItem("kw_v", n);
-  $("#vc").innerHTML = String(n).padStart(6, "0").split("").map(d => '<span class="dg">' + d + "</span>").join(""); } catch (e) {}
+/* Contador de visitas: en construcción (broma con stickmen en el pie de página).
+   El contador anterior solo contaba dentro del navegador de cada persona, así que no era real. */
 
 /* ===== Easter egg: gato tramposo → juegos favoritos ===== */
 const egg = $("#egg"), eggbg = $("#eggbg"), egb = $("#egb"), egm = $("#egm"), egn = $("#egn"), egs = $("#egs");
