@@ -129,6 +129,13 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 #sm a:hover,#sm a:focus-visible{background:var(--navy);color:#fff}
 #boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;padding:20px}
 #boot.out{display:none}
+.bw{width:min(100%,640px)}
+.bro{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.bro .btn{flex:1 1 150px;margin:0;padding:11px 14px;font-size:15px;text-align:center}
+.bdesc{margin:0 0 16px;border-top:1px dashed #2c4a64;padding-top:10px;font:13.5px/1.5 "Lucida Console","Courier New",monospace;color:var(--ice)}
+.bdesc div{padding:4px 8px;border:1px solid transparent}
+.bdesc div.on{background:#0f2a44;border-color:var(--lamp)}
+.bdesc b{color:var(--lamp);font-weight:400}
 #boot pre{margin:0 0 18px;color:var(--ice);white-space:pre-wrap;min-height:6.5em;font-family:"Lucida Console","Courier New",monospace}
 /* ===== Secciones: rutas, servicios y doblaje ===== */
 .grp{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:26px;align-items:start}
@@ -279,8 +286,22 @@ video.vid{display:block;width:100%;max-height:420px;background:#000;border:2px s
 <body>
 
 <div id="boot" role="dialog" aria-label="Pantalla de entrada">
-  <div><pre id="bt"></pre>
-  <div><button class="btn" id="ys">entrar con sonido</button> <button class="btn" id="ns">entrar sin sonido</button></div></div>
+  <div class="bw"><pre id="bt"></pre>
+    <div id="bs1"><button class="btn" id="ys">entrar con sonido</button> <button class="btn" id="ns">entrar sin sonido</button></div>
+    <div id="bs2" hidden>
+      <div class="bro" role="group" aria-label="Rutas">
+        <button class="btn" type="button" data-go="#servicios" data-k="s" id="r-serv">Servicios</button>
+        <button class="btn" type="button" data-go="#doblaje" data-k="d">Doblaje</button>
+        <button class="btn" type="button" data-go="#redes" data-k="c">Medios de contacto</button>
+      </div>
+      <div class="bdesc">
+        <div data-k="s"><b>[Servicios]</b> Mezcla, SFX, covers y producción: paquetes, cotizador, formulario y precios de lanzamiento (-30%).</div>
+        <div data-k="d"><b>[Doblaje]</b> Escucha mis demos de voz y mis participaciones como voz: voice over, comic dubs y escenas.</div>
+        <div data-k="c"><b>[Medios de contacto]</b> Mis redes, correo y Discord para escribirme directo.</div>
+      </div>
+      <button class="btn" type="button" id="bsk">ver toda la página ▸</button>
+    </div>
+  </div>
 </div>
 
 <audio id="bgm" preload="none"></audio>
@@ -309,7 +330,13 @@ video.vid{display:block;width:100%;max-height:420px;background:#000;border:2px s
       <a class="route" href="#doblaje">
         <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="6" y="1" width="4" height="7" fill="#bfe9f5"/><rect x="5" y="3" width="1" height="4" fill="#bfe9f5"/><rect x="10" y="3" width="1" height="4" fill="#bfe9f5"/><rect x="3" y="7" width="1" height="3" fill="#4d7fb3"/><rect x="12" y="7" width="1" height="3" fill="#4d7fb3"/><rect x="4" y="10" width="8" height="1" fill="#4d7fb3"/><rect x="7" y="11" width="2" height="3" fill="#4d7fb3"/><rect x="5" y="14" width="6" height="1" fill="#ffc27a"/></svg>
         <strong>doblaje/</strong>
-        <small>Voice over, fandubs y comic dubs: solo mis participaciones como voz.</small>
+        <small>Escucha mis demos de voz y mis participaciones: voice over, comic dubs y escenas.</small>
+        <span class="go">abrir ▸</span>
+      </a>
+      <a class="route" href="#redes">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="1" y="3" width="14" height="10" fill="#4d7fb3"/><rect x="2" y="4" width="12" height="8" fill="#0a1a2b"/><rect x="2" y="4" width="2" height="1" fill="#ffc27a"/><rect x="4" y="5" width="2" height="1" fill="#ffc27a"/><rect x="6" y="6" width="4" height="1" fill="#ffc27a"/><rect x="10" y="5" width="2" height="1" fill="#ffc27a"/><rect x="12" y="4" width="2" height="1" fill="#ffc27a"/></svg>
+        <strong>contacto/</strong>
+        <small>Mis redes, correo y Discord para escribirme directo.</small>
         <span class="go">abrir ▸</span>
       </a>
     </div></div></section>
@@ -375,7 +402,7 @@ video.vid{display:block;width:100%;max-height:420px;background:#000;border:2px s
   </div>
 
   <div class="grp" id="doblaje">
-    <h2 class="strip"><span>▼ 02 · DOBLAJE</span><small>voice over · fandubs · comic dubs</small></h2>
+    <h2 class="strip"><span>▼ 02 · DOBLAJE</span><small>demos de voz · voice over · comic dubs</small></h2>
 
     <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
       <div class="body"><div class="sunk">
@@ -703,14 +730,34 @@ document.addEventListener("click", e => { if (e.target.closest("a,button,.work,.
 $("#mute").onclick = () => { mkCtx(); setMute(!muted); };
 
 /* Boot */
-const lines = "> iniciando kuroko_w.exe\n> encendiendo el farol...\n> audio: listo\n> ok.";
-let bi = 0; const bt = $("#bt");
-const bti = setInterval(() => { bt.textContent = lines.slice(0, ++bi); if (bi >= lines.length) clearInterval(bti); }, 30);
-function enter(snd) {
+const bt = $("#bt"); let bti = 0, bootSnd = false;
+function typeBoot(t, ms = 28) { clearInterval(bti); let i = 0; bti = setInterval(() => { bt.textContent = t.slice(0, ++i); if (i >= t.length) clearInterval(bti); }, ms); }
+typeBoot("> iniciando kuroko_w.exe\n> encendiendo el farol...\n> audio: listo\n> ok.", 30);
+/* Paso 1: sonido. Paso 2: ruta. */
+function pickSound(snd) {
+  bootSnd = snd;
   if (snd) { mkCtx(); setMute(false); sBoot(); } else setMute(true);
-  $("#boot").classList.add("out"); typeLoop(); setMusic(snd); syncBgm();
+  $("#bs1").hidden = true; $("#bs2").hidden = false;
+  typeBoot("> sonido: " + (snd ? "on" : "off") + "\n> seleccione la ruta que esté buscando:");
+  $("#r-serv").focus();
 }
-$("#ys").onclick = () => enter(true); $("#ns").onclick = () => enter(false);
+function enter(target) {
+  clearInterval(bti);
+  $("#boot").classList.add("out"); typeLoop();
+  const el = target && $(target);
+  if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+  syncBgm(); setMusic(bootSnd);
+}
+$("#ys").onclick = () => pickSound(true); $("#ns").onclick = () => pickSound(false);
+$("#bsk").onclick = () => enter(null);
+const bdAll = [...document.querySelectorAll("#bs2 .bdesc [data-k]")];
+const bdShow = k => bdAll.forEach(d => d.classList.toggle("on", d.dataset.k === k));
+const bdFocus = () => bdShow(document.activeElement && document.activeElement.dataset ? document.activeElement.dataset.k : null);
+document.querySelectorAll("#bs2 [data-go]").forEach(b => {
+  b.onclick = () => enter(b.dataset.go);
+  b.addEventListener("mouseenter", () => bdShow(b.dataset.k)); b.addEventListener("mouseleave", bdFocus);
+  b.addEventListener("focus", () => bdShow(b.dataset.k)); b.addEventListener("blur", () => setTimeout(bdFocus, 0));
+});
 
 /* Luz del farol que sigue al cursor */
 document.addEventListener("pointermove", e => { const s = document.body.style; s.setProperty("--mx", e.clientX + "px"); s.setProperty("--my", e.clientY + "px"); });
