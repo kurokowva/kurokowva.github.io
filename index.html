@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kuroko_W | Voice Over & Ing. de audio</title>
-<meta name="description" content="Kuroko_W, voice over en español mexicano y latinoamericano e ingeniería de audio. Demos, colaboraciones y contacto.">
+<meta name="description" content="Kuroko_W: voice over y doblaje en español mexicano y latinoamericano, más servicios de mezcla, edición vocal, SFX y producción para covers, fandubs, VTubers y videojuegos. Cotiza y contrata.">
 <meta property="og:title" content="Kuroko_W | Voice Actor & Audio Engineer">
 <meta property="og:image" content="kuroko.png">
 <link rel="icon" href="kuroko.png">
@@ -130,6 +130,104 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 #boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;padding:20px}
 #boot.out{display:none}
 #boot pre{margin:0 0 18px;color:var(--ice);white-space:pre-wrap;min-height:6.5em;font-family:"Lucida Console","Courier New",monospace}
+/* ===== Secciones: rutas, servicios y doblaje ===== */
+.grp{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:26px;align-items:start}
+.strip{grid-column:1/-1;margin:14px 0 0;padding:7px 14px;background:#000;border:2px solid var(--blue);color:var(--lamp);font:700 14px/1.3 "Lucida Console","Courier New",monospace;letter-spacing:.14em;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
+.strip small{color:#7fb0cf;font-weight:400;letter-spacing:.04em;font-size:12px}
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.route{display:grid;grid-template-columns:64px 1fr;column-gap:14px;align-items:center;text-decoration:none;color:var(--ice);background:var(--dk);border:2px solid;border-color:#404040 #fff #fff #404040;padding:14px}
+.route svg{grid-row:1/4;width:64px;height:64px;shape-rendering:crispEdges}
+.route strong{color:#fff;font:1.35rem/1.1 "Arial Black",Impact,sans-serif}
+.route small{color:#9fc4d6;margin:2px 0}
+.route .go{color:var(--lamp);font-size:13px}
+.route:hover{outline:2px solid var(--lamp);outline-offset:-2px}
+.h2{margin:0 0 6px;font:1.5rem/1.15 "Arial Black",Impact,sans-serif;color:#fff;text-shadow:2px 2px 0 var(--navy)}
+.lead{color:var(--ice);margin:.3rem 0 .9rem}
+.offer{border:2px dashed var(--lamp);background:#1c1405;color:#ffe3b8;padding:10px 12px;margin:12px 0}
+.offer b{color:var(--lamp)}
+.offer summary{cursor:pointer;margin-top:6px;font-size:13px;color:#ffc27a}
+.offer p{margin:6px 0 0;font-size:13px;color:#e6cfa8}
+.hire{margin:12px 0;padding:12px;background:#0d2238;border:2px solid var(--blue)}
+.hire p{margin:0 0 8px}
+@media(max-width:899px){.czr{order:-1}}
+.hire .badges{margin:6px 0 10px}
+.hire a:not(.btn):not(.b88){color:var(--lamp)}
+.hire .btn{color:#000}
+.track a{color:var(--lamp)}
+.hire a.b88{color:#fff}
+.hire a.b88:hover{background:var(--navy)}
+#pm .tracks{align-items:start}
+.steps{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;counter-reset:s}
+.steps li{counter-increment:s;position:relative;background:#0d2238;border:1px solid #1f4263;padding:10px 12px 10px 46px;font-size:14px}
+.steps li::before{content:counter(s);position:absolute;left:10px;top:10px;width:26px;height:26px;display:grid;place-items:center;background:var(--lamp);color:#000;font-weight:bold}
+.steps strong{display:block;color:#fff}
+.roles{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px}
+.role{font-size:11px;line-height:1;padding:3px 6px;border:1px solid var(--lamp);color:var(--lamp);background:#1c1405}
+.gh{margin:20px 0 8px;font:bold 13px/1.2 "Lucida Console","Courier New",monospace;letter-spacing:.12em;color:var(--navy);text-transform:uppercase}
+.gh:first-child{margin-top:0}
+video.vid{display:block;width:100%;max-height:420px;background:#000;border:2px solid #404040;margin:6px 0 4px}
+.pkgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px}
+.pkg{display:flex;flex-direction:column;gap:8px}
+.pkg h3{margin:0;color:#fff;font:1.15rem/1.2 "Arial Black",Impact,sans-serif}
+.pkg .pr{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.pkg .old{text-decoration:line-through;color:#7f9fb2}
+.pkg .big{font:1.8rem/1 "Arial Black",Impact,sans-serif;color:var(--lamp)}
+.pkg .us{color:#9fc4d6;font-size:13px}
+.pkg ul{margin:0;padding-left:18px}
+.pkg li{margin:3px 0}
+.pkg .nt{font-size:13px;color:#9fc4d6;border-top:1px dashed #2c4a64;padding-top:8px;margin-top:auto}
+.tag{display:inline-block;background:var(--lamp);color:#000;font-size:11px;font-weight:bold;padding:1px 6px}
+.cz{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media(min-width:900px){.cz{grid-template-columns:minmax(0,1fr) 340px;align-items:start}.czr{position:sticky;top:12px}}
+.pg3{margin:0 0 6px;color:var(--lamp);font:bold 13px/1.2 "Lucida Console","Courier New",monospace;letter-spacing:.12em;text-transform:uppercase}
+.pgrp{margin-bottom:22px}
+.pgrp:last-child{margin-bottom:0}
+.prows{list-style:none;margin:0;padding:0}
+.prow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 6px;border-bottom:1px dashed #2c4a64}
+.prow.on{background:#0f2a44}
+.prow .pi{flex:1 1 220px;min-width:0}
+.prow .pi strong{display:block;color:#fff}
+.prow .pi small{color:#9fc4d6}
+.prow .pq{flex:0 0 auto;text-align:right;min-width:92px}
+.prow .pq b{color:var(--lamp)}
+.prow .pq small{display:block;color:#9fc4d6;font-size:12px}
+.qt{display:flex;align-items:center;gap:4px;flex:0 0 auto}
+.qt .btn{width:32px;height:32px;padding:0;margin:0;font:bold 16px/1 Tahoma,sans-serif;display:grid;place-items:center}
+.qt output{min-width:28px;text-align:center;color:#fff;font:bold 15px "Lucida Console",monospace}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{font:inherit;font-size:14px;cursor:pointer;background:var(--gray);color:#000;padding:5px 12px;border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:inset -1px -1px 0 #808080}
+.chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:#404040 #fff #fff #404040;box-shadow:none}
+.sunk .pnote{color:#9fc4d6;font-size:13px;margin:8px 0 0}
+.sum h3{margin:0 0 8px;color:var(--lamp);font:bold 13px/1.2 "Lucida Console","Courier New",monospace;letter-spacing:.12em;text-transform:uppercase}
+.sum ul{list-style:none;margin:0;padding:0}
+.sum li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:14px}
+.sum li span:last-child{text-align:right;color:#fff}
+.sum .sub{border-top:1px dashed #2c4a64;margin-top:6px;padding-top:6px}
+.sum .dsc span:last-child{color:#7dffb0}
+.sum .tot{border-top:2px solid var(--lamp);margin-top:8px;padding-top:8px;font-weight:bold;font-size:16px}
+.sum .usd{color:#9fc4d6;font-size:12.5px;text-align:right;margin-top:2px}
+.sum .empty{color:#9fc4d6;font-size:14px}
+.sum label{display:flex;gap:8px;align-items:flex-start;margin:10px 0 0;font-size:13.5px}
+.sum label input{margin-top:3px}
+.sbtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.sbtns .btn{margin:0}
+.fm{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.fm label{display:flex;flex-direction:column;gap:4px;color:var(--ice);font-size:14px}
+.fm .full{grid-column:1/-1}
+.fm input,.fm select,.fm textarea{font:inherit;color:#fff;background:#06131f;border:2px solid;border-color:#404040 #fff #fff #404040;padding:7px 9px;min-height:38px;width:100%}
+.fm textarea{min-height:96px;resize:vertical}
+.fm textarea[readonly]{color:#bfe9f5;background:#0a1a2b}
+.fm .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fmsg{font-size:14px}
+.fmsg.ok{color:#7dffb0}
+.fmsg.err{color:#ffb3a0}
+.sunk :focus-visible{outline-color:var(--lamp)}
+.acc details{background:var(--dk);color:var(--ice);border:2px solid;border-color:#404040 #fff #fff #404040;margin-bottom:8px}
+.acc summary{cursor:pointer;padding:9px 12px;color:#fff;font-weight:bold}
+.acc .dc{padding:2px 14px 12px}
+.acc .dc p{margin:.5em 0}
+.mt{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+@media(max-width:640px){.mt{display:none}}
 /* Easter egg: gato + juegos favoritos */
 #eggbg{display:none;position:fixed;inset:0;z-index:65;background:#000c}
 #egg{display:none;position:fixed;left:50%;top:50%;translate:-50% -50%;z-index:70;width:min(94vw,540px)}
@@ -186,7 +284,7 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 </div>
 
 <audio id="bgm" preload="none"></audio>
-<div class="ticker" aria-hidden="true"><span>★ kuroko_w // voice over // ing. de audio // español mexicano / latinoamericano // abierto a audiciones y proyectos // kuroko_w ★</span></div>
+<div class="ticker" aria-hidden="true"><span>★ kuroko_w // voice over // doblaje // mezcla // sfx // covers // cotizaciones abiertas // español mexicano / latinoamericano // kuroko_w ★</span></div>
 <div class="bar">C:\kuroko_w\portafolio\</div>
 
 <main>
@@ -197,31 +295,103 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
         <p class="sub">Voice over e ing. de audio · español mexicano / latinoamericano</p>
         <p class="type" id="ty" aria-live="off"></p>
         <p class="stat">● disponible para audiciones</p>
-        <a class="btn" href="#contacto">contactar</a> <a class="btn" href="#demo">escuchar demo</a> <a class="btn" href="#voiceover">voice over</a> <a class="btn" href="#audio">ing. de audio</a> <a class="btn" href="#covers">covers</a></div>
+        <a class="btn" href="#servicios">servicios</a> <a class="btn" href="#doblaje">doblaje</a> <a class="btn" href="#demo">escuchar demo</a> <a class="btn" href="#contacto">contactar</a></div>
     </div></section>
 
-  <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
-    <div class="body"><div class="sunk">
-      <audio id="au" src="demo.wav" preload="none"></audio>
-      <div class="player" id="pl"><button class="btn" id="pp" aria-label="Reproducir demo">▶ play</button><div class="wave" aria-hidden="true"></div></div>
-      <div class="prog" id="pg" role="progressbar" aria-label="Progreso del demo"><div id="pb"></div></div>
-      <p class="note" id="dn">Pulsa play. El sonido nunca arranca solo.</p>
-      <p class="note"><a href="demo.wav" download>descargar demo</a></p>
+  <section class="win wide" id="rutas"><div class="tb"><span>elige_ruta.exe</span><button aria-label="minimizar">_</button></div>
+    <div class="body"><div class="routes">
+      <a class="route" href="#servicios">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="1" width="2" height="14" fill="#4d7fb3"/><rect x="7" y="1" width="2" height="14" fill="#4d7fb3"/><rect x="12" y="1" width="2" height="14" fill="#4d7fb3"/><rect x="1" y="9" width="4" height="3" fill="#ffc27a"/><rect x="6" y="3" width="4" height="3" fill="#ffc27a"/><rect x="11" y="7" width="4" height="3" fill="#ffc27a"/></svg>
+        <strong>servicios/</strong>
+        <small>Mezcla, SFX, covers y producción. Cotiza, personaliza y contrata.</small>
+        <span class="go">abrir ▸</span>
+      </a>
+      <a class="route" href="#doblaje">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="6" y="1" width="4" height="7" fill="#bfe9f5"/><rect x="5" y="3" width="1" height="4" fill="#bfe9f5"/><rect x="10" y="3" width="1" height="4" fill="#bfe9f5"/><rect x="3" y="7" width="1" height="3" fill="#4d7fb3"/><rect x="12" y="7" width="1" height="3" fill="#4d7fb3"/><rect x="4" y="10" width="8" height="1" fill="#4d7fb3"/><rect x="7" y="11" width="2" height="3" fill="#4d7fb3"/><rect x="5" y="14" width="6" height="1" fill="#ffc27a"/></svg>
+        <strong>doblaje/</strong>
+        <small>Voice over, fandubs y comic dubs: solo mis participaciones como voz.</small>
+        <span class="go">abrir ▸</span>
+      </a>
     </div></div></section>
 
-  <section class="win" id="contacto"><div class="tb"><span>contacto.txt</span><button aria-label="minimizar">_</button></div>
-    <div class="body"><p>Audiciones, proyectos y encargos:</p>
-      <p class="mail"><a id="ml" href="#"></a></p>
-      <button class="btn" id="cp">copiar correo</button> <span class="note" id="cm"></span></div></section>
+  <div class="grp" id="servicios">
+    <h2 class="strip"><span>▼ 01 · SERVICIOS</span><small>mezcla · sfx · covers · producción · ♪ aquí suena Aria Math</small></h2>
 
-  <section class="win wide" id="voiceover"><div class="tb"><span>voice_over/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
-    <div class="body"><div class="tracks" id="tv"></div></div></section>
+    <section class="win wide" id="servicios-info"><div class="tb"><span>servicios.exe <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="sunk">
+        <h3 class="h2">Mezcla, edición y sonido listos para publicar</h3>
+        <p class="lead">Trabajo con creadores de covers, fandubs, VTubers, streamers y videojuegos: mezcla vocal, edición, SFX, diseño sonoro y producción. Elige un paquete, arma tu cotización a tu medida o cuéntame tu idea.</p>
+        <div class="offer" id="offer"></div>
+        <div class="hire" id="hire"></div>
+        <ol class="steps">
+          <li><strong>Elige</strong>Escoge un paquete o arma tu cotización en el cotizador.</li>
+          <li><strong>Escríbeme</strong>Mándame un DM, un correo o el formulario con tu proyecto y tus referencias.</li>
+          <li><strong>Cotización y anticipo</strong>Te respondo con una cotización por escrito. Al aceptarla y recibir el anticipo, asigno folio de proyecto y empiezo.</li>
+          <li><strong>Entrega</strong>Recibes tus archivos finales con una ronda de ajustes incluida.</li>
+        </ol>
+      </div></div></section>
 
-  <section class="win wide" id="audio"><div class="tb"><span>ing_de_audio/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
-    <div class="body"><div class="tracks" id="ta"></div></div></section>
+    <section class="win wide" id="muestras"><div class="tb"><span>portafolio_mezcla/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+      <div class="body"><span id="audio"></span><span id="covers"></span><div id="pm"></div></div></section>
 
-  <section class="win wide" id="covers"><div class="tb"><span>covers/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
-    <div class="body"><div class="tracks" id="tc"></div></div></section>
+    <section class="win wide" id="paquetes"><div class="tb"><span>paquetes/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="pkgs" id="pk"></div></div></section>
+
+    <section class="win wide" id="cotizador"><div class="tb"><span>cotizador.exe <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="cz">
+        <div class="sunk" id="czl"></div>
+        <aside class="czr" aria-label="Resumen de tu cotización"><div class="sunk sum">
+          <h3>cotización preliminar</h3>
+          <div id="sl" aria-live="polite"></div>
+          <label id="ncl"><input type="checkbox" id="nc" checked><span></span></label>
+          <label><input type="checkbox" id="ur"><span>Entrega urgente (menos de 3 días hábiles): recargo de 10 a 30%.</span></label>
+          <p class="note">Estimación orientativa. El monto final y el alcance quedan en la cotización que acepta el cliente por escrito.</p>
+          <div class="sbtns"><button class="btn" id="qs" type="button">enviar esta cotización ▸</button><button class="btn" id="qc" type="button">copiar texto</button><button class="btn" id="qx" type="button">vaciar</button></div>
+          <span class="note" id="qm" aria-live="polite"></span>
+        </div></aside>
+      </div></div></section>
+
+    <section class="win wide" id="contratar"><div class="tb"><span>contratar.txt</span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="sunk">
+        <p class="lead"><strong>Cuéntame tu proyecto.</strong> Este formulario llega directo a mi correo. Si prefieres, mándame un mensaje directo a mis redes o escríbeme por correo.</p>
+        <form id="cf" class="fm">
+          <label>Nombre o alias *<input name="name" id="f-name" required maxlength="80" autocomplete="name"></label>
+          <label>Correo *<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+          <label>Red social o Discord (opcional)<input name="contacto" maxlength="80" placeholder="@usuario"></label>
+          <label>Nombre del proyecto<input name="proyecto" maxlength="120"></label>
+          <label class="full">Descripción del trabajo *<textarea name="descripcion" required maxlength="2000" placeholder="Servicio que necesitas, duración, estilo de referencia y resultado esperado"></textarea></label>
+          <label>Enlace a referencias o material (Drive, YouTube...)<input name="enlace" type="url" inputmode="url" maxlength="300" placeholder="https://"></label>
+          <label>Uso previsto<select name="uso"><option value="">Selecciona…</option><option>Redes sociales</option><option>Streams y videos</option><option>Uso comercial</option><option>Distribución musical</option><option>Uso exclusivo</option><option>Aún no lo sé</option></select></label>
+          <label>Fecha o plazo deseado<input name="fecha" maxlength="80" placeholder="ej. antes del 15 de diciembre"></label>
+          <label class="full">Tu cotización preliminar (se envía junto con tu mensaje)<textarea id="cq" name="cotizacion" readonly rows="7" placeholder="Aún no armas una cotización. Puedes hacerlo en el cotizador de arriba o describir lo que necesitas en el mensaje."></textarea></label>
+          <div class="hp" aria-hidden="true"><label>No llenar<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
+          <div class="full"><button class="btn" id="fsend" type="submit">enviar solicitud ▸</button> <span id="fmsg" class="fmsg" role="status" aria-live="polite"></span></div>
+          <p class="note full">Al enviar, tus datos llegan a mi correo (a través de FormSubmit) y los uso solo para responderte. Si el envío falla, te dejo un botón para mandarlo desde tu propio correo.</p>
+        </form>
+      </div></div></section>
+
+    <section class="win wide" id="condiciones"><div class="tb"><span>condiciones.txt</span><button aria-label="minimizar">_</button></div>
+      <div class="body acc" id="cond"></div></section>
+  </div>
+
+  <div class="grp" id="doblaje">
+    <h2 class="strip"><span>▼ 02 · DOBLAJE</span><small>voice over · fandubs · comic dubs</small></h2>
+
+    <section class="win" id="demo"><div class="tb"><span>demo.wav</span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="sunk">
+        <audio id="au" src="demo.wav" preload="none"></audio>
+        <div class="player" id="pl"><button class="btn" id="pp" aria-label="Reproducir demo">▶ play</button><div class="wave" aria-hidden="true"></div></div>
+        <div class="prog" id="pg" role="progressbar" aria-label="Progreso del demo"><div id="pb"></div></div>
+        <p class="note" id="dn">Pulsa play. El sonido nunca arranca solo.</p>
+        <p class="note"><a href="demo.wav" download>descargar demo</a></p>
+      </div></div></section>
+
+    <section class="win" id="voiceover"><div class="tb"><span>voice_over/</span><button aria-label="minimizar">_</button></div>
+      <div class="body"><div class="tracks" id="tv"></div></div></section>
+
+    <section class="win wide" id="participaciones"><div class="tb"><span>doblajes/ <b class="new">NEW!</b></span><button aria-label="minimizar">_</button></div>
+      <div class="body"><p class="note">Mis participaciones como voz: fandubs, comic dubs y proyectos de doblaje.</p><div class="tracks" id="td"></div></div></section>
+  </div>
 
   <section class="win wide" id="colaboraciones"><div class="tb"><span>colaboraciones/</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="works" id="wk"></div></div></section>
@@ -231,6 +401,11 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 
   <section class="win" id="redes"><div class="tb"><span>redes.lnk</span><button aria-label="minimizar">_</button></div>
     <div class="body"><div class="badges" id="bd"></div></div></section>
+
+  <section class="win" id="contacto"><div class="tb"><span>contacto.txt</span><button aria-label="minimizar">_</button></div>
+    <div class="body"><p>Audiciones, proyectos y encargos:</p>
+      <p class="mail"><a id="ml" href="#"></a></p>
+      <button class="btn" id="cp">copiar correo</button> <span class="note" id="cm"></span></div></section>
 </main>
 <footer>Kuroko_W · mejor visto en 800×600
   <div class="cons" role="img" aria-label="Contador de visitas en construcción: unos stickmen están trabajando en ello.">
@@ -272,7 +447,7 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
 </footer>
 
 <nav id="sm" aria-label="Menú de inicio">
-  <a href="#hero">kuroko_w.exe</a><a href="#demo">demo.wav</a><a href="#voiceover">voice_over/</a><a href="#audio">ing_de_audio/</a><a href="#covers">covers/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
+  <a href="#hero">kuroko_w.exe</a><a href="#servicios">servicios/</a><a href="#cotizador">cotizador.exe</a><a href="#doblaje">doblaje/</a><a href="#colaboraciones">colaboraciones/</a><a href="#contacto">contacto.txt</a><a href="#" id="egg-o">???.exe</a>
 </nav>
 
 <div id="eggbg"></div>
@@ -293,38 +468,158 @@ footer{max-width:1040px;margin:0 auto;padding:0 16px 30px;color:#7fb0cf;font-siz
   </div>
 </section>
 <div id="tk"><button class="btn" id="st0" aria-expanded="false" aria-controls="sm"><i></i>Inicio</button>
-  <div class="tray"><button class="btn" id="mus" aria-pressed="false">música: off</button><button class="btn" id="mute" aria-pressed="false">sonido: on</button><span id="clk"></span></div></div>
+  <div class="tray"><button class="btn" id="mus" aria-pressed="false">música: off</button><span id="mt" class="mt"></span><button class="btn" id="mute" aria-pressed="false">sonido: on</button><span id="clk"></span></div></div>
 
 <script>
 /* ============ EDITA AQUÍ ============ */
 const CFG = {
   email: "kurokow.va@gmail.com",
+  // Formulario: se envía con FormSubmit (formsubmit.co). La PRIMERA vez que alguien lo use te llegará un correo para activarlo.
+  // Opcional: pega aquí el código que te da FormSubmit tras activarlo para no exponer tu correo en la petición.
+  formId: "",
   typed: [
     "voice over en español mexicano / latinoamericano",
     "ingeniería de audio y mezcla",
+    "mezcla, SFX y covers: cotiza tu proyecto",
     "inglés con estilo spanglish",
     "audiciones, proyectos y sesiones en vivo"
   ],
   // Música de fondo (el archivo va junto a index.html) y su volumen (0 a 1)
   bgm: "Wii Party Soundtrack Main Menu Music (Nostalgia Version).mp3",
   bgmVolume: .15,
-  // Demos de Voice Over (cada archivo debe estar junto a index.html)
+  bgmName: "Wii Party",
+  // Música de la sección SERVICIOS: suena en bucle mientras estás en esa sección (si la música está activada)
+  servicesBgm: "13. Aria Math.mp3",
+  servicesBgmVolume: .15,
+  servicesBgmName: "Aria Math",
+
+  // ===== SECCIÓN DOBLAJE: solo tus participaciones como voz =====
+  // roles: etiquetas de lo que hiciste · char: nombre del personaje (opcional) · video: true si es un .mp4
   voiceover: [
-    { title: "Demo principal", desc: "Voice Over", file: "demo.wav" },
-    { title: "Comic Dub Demo", desc: "Voice Over · doblaje de cómic", file: "democomicdub.wav" }
+    { title: "Comic Dub Demo", desc: "Voice Over · doblaje de cómic", roles: ["Doblaje"], file: "democomicdub.wav" }
+    // El "Demo principal" (demo.wav) va en su propia ventana, junto a esta.
   ],
-  // Muestras de Ingeniería de audio
-  audioeng: [
-    { title: "Audio Mixer 1", desc: "Ing. de audio · mezcla", file: "audiomixer1.wav" },
-    { title: "Audio Mixer 2", desc: "Ing. de audio · mezcla", file: "audiomixer2.mp3" },
-    { title: "SFX 1", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX.mp3" },
-    { title: "SFX 2", desc: "Ing. de audio · efectos de sonido por encargo", file: "SFX_2.mp3" }
+  dubs: [
+    { title: "Comic 14", desc: "Comic dub", roles: ["Doblaje"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "Comic 14.mp4", video: true },
+    { title: "Maestra Reze", desc: "Anime fandub · escena de Denji y Reze en la escuela", roles: ["Doblaje"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "Maestra Reze.mp4", video: true }
   ],
-  // Covers: mezcla, remix y composición por ti. Los archivos van junto a index.html.
-  covers: [
-    { title: "No Hay Arreglo", desc: "Cover de FNAFHS · voz: Shouko · mezcla, remix y composición: Kuroko_W", file: "No Hay Arreglo Shouko Cover.mp3" },
-    { title: "California", desc: "Cover de Los Vaguens · voz: Shouko · mezcla, remix y composición: Kuroko_W", file: "California Ardilla.wav" }
+
+  // ===== SECCIÓN SERVICIOS: portafolio de mezcla, SFX y producción =====
+  portfolio: [
+    { group: "Covers mezclados", items: [
+      { title: "No Hay Arreglo", desc: "Cover de FNAFHS", roles: ["Mezcla", "Remix", "Composición"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "No Hay Arreglo Shouko Cover.mp3" },
+      { title: "California", desc: "Cover de Los Vaguens", roles: ["Mezcla", "Remix", "Composición"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "California Ardilla.wav" },
+      { title: "Ardilla Proyectada", desc: "California (Los Vaguens) · versión en video", roles: ["Mezcla"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "Ardilla Proyectada FINAL-1.mp4", video: true }
+    ] },
+    { group: "Doblajes con sonido", items: [
+      { title: "Comic 14", desc: "Comic dub con SFX y foley · también participé en el doblaje", roles: ["SFX", "Foley", "Doblaje"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "Comic 14.mp4", video: true },
+      { title: "Maestra Reze", desc: "Anime fandub mezclado · escena de Denji y Reze en la escuela · también participé en el doblaje", roles: ["Mezcla", "Doblaje"], with: { label: "Shouko", url: "https://shoukoowo.github.io/" }, file: "Maestra Reze.mp4", video: true }
+    ] },
+    { group: "Mezcla y efectos de sonido", items: [
+      { title: "Audio Mixer 1", desc: "Muestra de mezcla", roles: ["Mezcla"], file: "audiomixer1.wav" },
+      { title: "Audio Mixer 2", desc: "Muestra de mezcla", roles: ["Mezcla"], file: "audiomixer2.mp3" },
+      { title: "SFX 1", desc: "Efectos de sonido por encargo", roles: ["SFX"], file: "SFX.mp3" },
+      { title: "SFX 2", desc: "Efectos de sonido por encargo", roles: ["SFX"], file: "SFX_2.mp3" },
+      { title: "SFX 3", desc: "Efecto de sonido para Blue Lock", roles: ["SFX"], file: "SFX_3.mp3" }
+    ] }
   ],
+
+  // ===== SERVICIOS: catálogo y tarifas (precios regulares en MXN) =====
+  // mxn: número, o [mínimo, máximo] si es un rango · from: true = "desde" · usd: aproximado, solo informativo
+  services: {
+    mxnPerUsd: 18.5, // tipo de cambio aproximado para las estimaciones en USD
+    // Oferta de lanzamiento. Cuando se llenen los lugares, cambia active a false y desaparece de toda la página.
+    launch: {
+      active: true, pct: 30, spots: 10,
+      terms: "Se cuenta como acuerdo cerrado cuando la cotización se acepta por escrito, se asigna el folio de proyecto y se recibe el anticipo; solo cotizar no aparta el descuento. Aplica a los servicios o paquetes del primer proyecto del cliente, sobre el precio regular; no aplica a adicionales ni recargos y no se combina con otros descuentos. Al completarse los 10 lugares rige el precio regular."
+    },
+    urgent: { min: 10, max: 30 }, // recargo por entrega urgente (%)
+    packages: [
+      { id: "p-cover", name: "Cover Starter", mxn: 650, usd: 35, usdLaunch: 24,
+        incl: ["Mezcla vocal de una canción de hasta 5 minutos.", "Limpieza y edición básica de una voz principal, incluida la alineación temporal necesaria para que la interpretación encaje con el instrumental.", "Ecualización, compresión y efectos.", "Entrega en stems, WAV y MP3, con una ronda de ajustes menores."],
+        note: "El cliente proporciona la instrumental y las pistas vocales, incluidas las armonías que deban mezclarse. No incluye composición, arreglo, grabación ni creación de armonías." },
+      { id: "p-fandub", name: "Fandub Scene", mxn: 450, usd: 24, usdLaunch: 17,
+        incl: ["Limpieza y edición básica de diálogos.", "Nivelación de voces y procesamiento sencillo.", "Mezcla estéreo de una escena de hasta 2 minutos y 2 voces.", "Exportación final en WAV, con una ronda de ajustes menores."],
+        note: "No incluye grabación de actores, edición de video ni sincronización labial/cuadro por cuadro. El audio se procesa con base en las pistas y referencias recibidas; el cliente debe confirmar que las tomas corresponden al montaje final. Si necesita sincronización con video, se cotiza como adicional." },
+      { id: "p-vtuber", name: "VTuber Sound Starter", mxn: 300, usd: 16, usdLaunch: 11,
+        incl: ["Cinco SFX personalizados.", "Un sonido de transición.", "Exportación en WAV y MP3, con una ronda de ajustes."],
+        note: "No incluye BGM, implementación en OBS, archivos fuente ni exclusividad comercial." }
+    ],
+    groups: [
+      { title: "Mezcla y edición vocal para covers",
+        note: "No incluye grabación, dirección de interpretación, instrumental, corrección de afinación vocal ni reparación avanzada de archivos muy dañados, salvo que se especifique en la cotización. La edición y alineación temporal de las voces sí están incluidas dentro del alcance base.",
+        items: [
+          { id: "s-limp", name: "Limpieza vocal", scope: "Hasta 5 minutos de audio", mxn: 200, usd: 11 },
+          { id: "s-mezc", name: "Mezcla vocal para cover", scope: "Una voz principal", mxn: 350, usd: 19 },
+          { id: "s-arm", name: "Voces con dobles y armonías", scope: "Voz principal y hasta 2 capas extra", mxn: 500, usd: 27, from: true },
+          { id: "s-mast", name: "Masterización estéreo", scope: "Una mezcla final", mxn: 200, usd: 11 }
+        ] },
+      { title: "Sonido para fandubs",
+        note: "No incluye grabación de actores, edición de video ni sincronización labial/cuadro por cuadro. El audio se procesa con base en las pistas y referencias recibidas; el cliente debe confirmar que las tomas corresponden al montaje final. Si necesita sincronización con video, se cotiza como adicional.",
+        items: [
+          { id: "s-dial", name: "Mezcla de diálogo", scope: "Escena de hasta 2 minutos y 2 voces", mxn: 250, usd: 14 },
+          { id: "s-dsfx", name: "Diseño sonoro para fandub", scope: "Escena de hasta 2 minutos", mxn: 450, usd: 24 }
+        ] },
+      { title: "Sonido para VTubers y streamers",
+        items: [
+          { id: "s-sfx1", name: "SFX sencillo", scope: "1 efecto", mxn: 50, usd: 3 },
+          { id: "s-sfx2", name: "SFX personalizado", scope: "1 efecto", mxn: 70, usd: 4 },
+          { id: "s-trans", name: "Sonido de transición", scope: "1 pieza", mxn: 70, usd: 4 },
+          { id: "s-pk5", name: "Paquete de SFX", scope: "5 efectos sencillos", mxn: 300, usd: 16 },
+          { id: "s-pk10", name: "Paquete de SFX", scope: "10 efectos personalizados", mxn: 500, usd: 27 },
+          { id: "s-ident", name: "Identidad sonora para VTuber", scope: "Paquete básico personalizado", mxn: 800, usd: 43 }
+        ] }
+    ],
+    // Se cotizan caso por caso (según duración, complejidad y derechos de uso)
+    others: ["Producción musical", "Instrumentales", "BGM", "Foley", "Remixes"],
+    othersNote: "Si tu proyecto necesita producción musical, instrumentales, BGM, Foley o remixes, escríbeme con tus referencias: se cotizan caso por caso según duración, complejidad y derechos de uso.",
+    extras: [
+      { id: "x-capa", name: "Capa vocal adicional (doble, armonía o coro)", unit: "por capa", mxn: 100 },
+      { id: "x-voz", name: "Voz principal adicional (dueto o segunda cantante)", unit: "por voz", mxn: 150 },
+      { id: "x-tun", name: "Afinación vocal básica", unit: "por canción", mxn: 150, from: true },
+      { id: "x-vozfd", name: "Voz adicional en fandub (más de 2 voces en la escena)", unit: "por voz", mxn: 50 },
+      { id: "x-mind", name: "Minuto adicional de diálogo (escena de más de 2 minutos)", unit: "por minuto", mxn: 50 },
+      { id: "x-minc", name: "Minuto adicional de canción (más de 5 minutos)", unit: "por minuto", mxn: 50 },
+      { id: "x-rep", name: "Reparación de audio con ruido o daños fuertes", unit: "según el estado", mxn: [150, 400] },
+      { id: "x-sync", name: "Sincronización con video (escena de hasta 2 minutos)", mxn: 100 },
+      { id: "x-vsfx", name: "Versión adicional de un SFX", mxn: [50, 80] },
+      { id: "x-valt", name: "Versión alternativa", mxn: [70, 100] },
+      { id: "x-ronda", name: "Ronda extra de ajustes menores", mxn: [100, 200] }
+    ],
+    extrasNote: "Una mezcla de cover incluye una voz principal y la edición/alineación temporal necesaria dentro del alcance contratado. La mezcla con dobles y armonías (desde $500) incluye hasta 2 capas extra. La corrección de afinación vocal es un servicio adicional, desde $150 MXN por canción, y debe aparecer en la cotización. Los demás adicionales se confirman antes de empezar.",
+    // Sin precio fijo: se piden como casilla y quedan "a cotizar"
+    quoteOnly: ["Exclusividad o cesión de derechos"],
+    quoteInfo: "Un cambio sustancial de alcance también lleva una nueva cotización."
+  },
+  // Condiciones (se muestran en la ventana condiciones.txt)
+  conditions: {
+    basics: [
+      ["Pagos", "50% de anticipo y 50% antes de entregar los archivos finales; en proyectos pequeños, pago completo por adelantado. Métodos: transferencia SPEI (México) y PayPal. Hasta liquidar recibes solo previews con marca de agua o en calidad reducida."],
+      ["Moneda e impuestos", "Los precios base son en MXN; si pagas en USD se usa el tipo de cambio del día de la cotización."],
+      ["Material de origen", "Envía las voces en WAV sin comprimir (o la mejor calidad que tengas), sin efectos y en pistas separadas, con la instrumental o el video de referencia y tus notas. La calidad final depende de ese material."],
+      ["Revisiones", "Una ronda son comentarios concretos y agrupados sobre lo entregado, enviados dentro de los 7 días siguientes a la entrega; pasado ese plazo se cotizan como trabajo nuevo. Cambios de dirección creativa, nuevos entregables y lo que quede fuera del alcance también se cotizan aparte."],
+      ["Entregas", "Servicios sencillos, de 3 a 7 días hábiles; producciones y proyectos extensos, de 1 a 2 semanas. Los plazos cuentan desde el anticipo y la recepción de todo el material."],
+      ["Cancelaciones", "Se acuerdan por escrito antes de empezar, considerando el trabajo realizado y los gastos efectivos."],
+      ["Archivos y portafolio", "Se entregan los archivos finales; proyectos del DAW son adicionales. Conservo tus archivos 30 días después de la entrega. Pediré tu autorización antes de mostrar tu proyecto en el portafolio y acordamos confidencialidad si la necesitas."],
+      ["Derechos de uso", "Contratar un servicio no transfiere derechos de autor ni de terceros. Cada cotización indica los usos autorizados (redes sociales, streams y videos, uso comercial, distribución musical o uso exclusivo). Covers, remixes y material de terceros pueden requerir permisos, que son responsabilidad del cliente."]
+    ],
+    clarifyIntro: "Para evitar malentendidos, el alcance definitivo de cada encargo será el descrito en la cotización aceptada por escrito. Si un servicio opcional no aparece en esa cotización, se considera no incluido.",
+    clarify: [
+      ["Afinación vocal y edición temporal para covers", [
+        "La limpieza y mezcla vocal para covers incluye la edición y alineación temporal de las voces dentro del alcance contratado: acomodar frases o entradas que lo necesiten y ajustar las pistas vocales para que encajen con el instrumental. No se cobra como adicional independiente. La corrección de afinación vocal (tuning) sí se cotiza aparte, desde $150 MXN por canción para una corrección básica de una voz principal. El precio puede aumentar según la duración, el número de pistas y la intensidad de las correcciones; se confirma antes de comenzar.",
+        "La edición temporal y la afinación dependen de la calidad de las tomas originales. La afinación no está incluida por defecto; no se garantiza un resultado natural cuando la interpretación presenta problemas severos de afinación, ritmo, articulación o grabación. Si el cliente desea un estilo de afinación evidente o robótica, debe indicarlo como referencia."
+      ]],
+      ["Fandubs: procesamiento frente a sincronización", [
+        "La mezcla de diálogo incluye limpieza básica, nivelación y procesamiento de las pistas recibidas. No incluye editar el video ni ajustar cada frase al movimiento de labios o a fotogramas específicos. El cliente debe entregar las tomas correspondientes al montaje que se mezclará e indicar cualquier cambio de escena o referencia temporal. La sincronización con video se ofrece como adicional únicamente cuando se acuerda expresamente; cualquier cambio del montaje después de la sincronización puede requerir una nueva cotización."
+      ]],
+      ["SFX personalizados y licencias", [
+        "Salvo que la cotización indique otra cosa, los paquetes de SFX incluyen archivos finales para el uso descrito en la cotización, no exclusividad, archivos fuente del proyecto ni cesión de derechos sobre materiales de terceros. Antes de comenzar, se debe especificar si el uso será para streams, videos monetizados, distribución comercial o una producción con exclusividad. Las licencias de bibliotecas o recursos de terceros siguen sujetas a sus propios términos."
+      ]],
+      ["Revisiones y cambios de alcance", [
+        "Una ronda de revisión consiste en una lista única y agrupada de ajustes menores enviada dentro de los 7 días posteriores a la entrega. No es una ronda ilimitada ni incluye una nueva dirección creativa, reemplazo de pistas, nuevas voces, nuevas versiones, afinación vocal, sincronización con video o reconstrucción sustancial del trabajo si no fueron contratados."
+      ]]
+    ]
+  },
   // Colaboraciones: proyectos en los que has participado (url es opcional)
   // Ejemplo: { title: "Nombre del proyecto", role: "Tu papel", url: "https://...", img: "imagen.png" }
   // Si llevan img se muestran como ícono grande; sin img, como tarjeta de texto.
@@ -347,15 +642,15 @@ const CFG = {
     ["Voz / idioma", "Español mexicano · Latinoamérica"],
     ["Inglés", "Spanglish / uso conversacional"]
   ],
-  // Redes y formas de contacto
+  // Redes y formas de contacto (dm: true = aparece en "¿Cómo contratar?")
   links: [
     { label: "Casting Call Club", url: "https://www.castingcall.club/m/kuroko_w" },
     { label: "YouTube", url: "https://www.youtube.com/@Kuroko_WOficial" },
-    { label: "TikTok", url: "https://www.tiktok.com/@kuroko_w" },
-    { label: "X (Twitter)", url: "https://x.com/kuroko_woficial" },
-    { label: "Instagram", url: "https://www.instagram.com/kuroko_woficial" },
-    { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61592981305056&locale=es_LA" },
-    { label: "Discord", url: "", text: "@kuroko__w" }
+    { label: "TikTok", url: "https://www.tiktok.com/@kuroko_w", dm: true },
+    { label: "X (Twitter)", url: "https://x.com/kuroko_woficial", dm: true },
+    { label: "Instagram", url: "https://www.instagram.com/kuroko_woficial", dm: true },
+    { label: "Facebook", url: "https://www.facebook.com/profile.php?id=61592981305056&locale=es_LA", dm: true },
+    { label: "Discord", url: "", text: "@kuroko__w", dm: true }
   ],
   // ===== Easter egg (menú Inicio → ???.exe): gato tramposo → juegos favoritos =====
   eggMistake: .4,  // fallos del bot en la partida "en serio": 0 = casi imposible de ganar, 1 = juega al azar
@@ -381,7 +676,7 @@ const $ = s => document.querySelector(s);
 /* Diagnóstico de audio: distingue "no existe" de "existe pero no se puede reproducir" */
 function why(file, out) {
   fetch(encodeURI(file), { method: "HEAD" }).then(
-    r => out(r.ok ? "Se encontró " + file + ", pero este navegador no puede reproducirlo. Expórtalo como WAV PCM 16-bit (o MP3) y vuelve a subirlo."
+    r => out(r.ok ? "Se encontró " + file + ", pero este navegador no puede reproducirlo. " + (/\.(mp4|webm|mov)$/i.test(file) ? "Expórtalo como MP4 (H.264 + AAC)" : "Expórtalo como WAV PCM 16-bit (o MP3)") + " y vuelve a subirlo."
                   : "No se encontró " + file + " (error " + r.status + "). Revisa que se llame igual, con mayúsculas y minúsculas, y esté junto a index.html."),
     () => out("No se pudo cargar " + file + ". Si abres index.html desde tu PC, pruébalo desde tu página publicada."));
 }
@@ -413,7 +708,7 @@ let bi = 0; const bt = $("#bt");
 const bti = setInterval(() => { bt.textContent = lines.slice(0, ++bi); if (bi >= lines.length) clearInterval(bti); }, 30);
 function enter(snd) {
   if (snd) { mkCtx(); setMute(false); sBoot(); } else setMute(true);
-  $("#boot").classList.add("out"); typeLoop(); setMusic(snd);
+  $("#boot").classList.add("out"); typeLoop(); setMusic(snd); syncBgm();
 }
 $("#ys").onclick = () => enter(true); $("#ns").onclick = () => enter(false);
 
@@ -458,9 +753,12 @@ $("#pg").onclick = e => { if (au.duration) au.currentTime = e.offsetX / e.curren
 au.onerror = () => why("demo.wav", m => $("#dn").textContent = m);
 $(".wave").innerHTML = "<i></i>".repeat(28);
 
-/* Música de fondo: canción → tape stop → demo → tape stop → canción (infinito) */
-const bg = $("#bgm"); let musicOn = false;
-bg.src = encodeURI(CFG.bgm); bg.volume = CFG.bgmVolume;
+/* Música de fondo: canción → tape stop → demo → tape stop → canción (infinito).
+   En la sección SERVICIOS suena Aria Math en bucle (sin el demo de voz); al salir vuelve la canción de siempre. */
+const bg = $("#bgm"); let musicOn = false, bgMode = "main";
+const bgSrc = () => encodeURI(bgMode === "servicios" ? CFG.servicesBgm : CFG.bgm);
+const bgVol = () => bgMode === "servicios" ? (CFG.servicesBgmVolume ?? CFG.bgmVolume) : CFG.bgmVolume;
+bg.src = bgSrc(); bg.volume = bgVol();
 function tapeStop(el, base, cb, ms = 1200) {
   el.preservesPitch = el.webkitPreservesPitch = el.mozPreservesPitch = false;
   const t0 = performance.now();
@@ -476,27 +774,69 @@ function tapeStop(el, base, cb, ms = 1200) {
 function watchEnd(el, base, cb) {
   el.addEventListener("timeupdate", () => {
     if (!musicOn || el._ts || el.paused || !isFinite(el.duration)) return;
-    if (el.duration - el.currentTime < 1.6) { el._ts = true; tapeStop(el, base, cb); }
+    if (el.duration - el.currentTime < 1.6) { el._ts = true; tapeStop(el, typeof base === "function" ? base() : base, cb); }
   });
   el.addEventListener("ended", () => { if (musicOn && !el._ts) cb(); });
 }
 const playBgm = () => { bg.currentTime = 0; bg.play().catch(() => {}); };
-watchEnd(bg, CFG.bgmVolume, () => au.play().catch(() => {}));
+watchEnd(bg, bgVol, () => { if (bgMode === "servicios") playBgm(); else au.play().catch(() => {}); });
 watchEnd(au, 1, playBgm);
+const mtShow = () => { $("#mt").textContent = musicOn ? "♪ " + (bgMode === "servicios" ? CFG.servicesBgmName : CFG.bgmName) : ""; };
 function setMusic(on) {
-  musicOn = on; $("#mus").textContent = "música: " + (on ? "on" : "off"); $("#mus").setAttribute("aria-pressed", on);
+  musicOn = on; $("#mus").textContent = "música: " + (on ? "on" : "off"); $("#mus").setAttribute("aria-pressed", on); mtShow();
   if (on) { if (bg.paused && au.paused) { if (bg.ended) bg.currentTime = 0; bg.play().catch(() => {}); } } else bg.pause();
 }
 $("#mus").onclick = () => setMusic(!musicOn);
-bg.onerror = () => { musicOn = false; $("#mus").textContent = "música: no encontrada"; $("#mus").setAttribute("aria-pressed", "false"); };
+/* Cambia de canción según la sección (con un fundido corto si estaba sonando) */
+function setBgMode(m) {
+  if (m === bgMode || !CFG.servicesBgm || bg._fb) return;
+  bgMode = m; mtShow();
+  const was = musicOn && !bg.paused;
+  const go = () => {
+    bg._ts = false; bg.playbackRate = 1; bg.src = bgSrc(); bg.volume = bgVol();
+    if (was && musicOn) { bg.currentTime = 0; bg.play().catch(() => {}); }
+  };
+  if (!was) return go();
+  const v0 = bg.volume, t0 = performance.now();
+  const iv = setInterval(() => { const k = Math.min(1, (performance.now() - t0) / 350); bg.volume = v0 * (1 - k); if (k >= 1) { clearInterval(iv); go(); } }, 30);
+}
+bg.onerror = () => {
+  if (bgMode === "servicios" && !bg._fb) { bg._fb = true; bgMode = "main"; bg.src = bgSrc(); bg.volume = bgVol(); mtShow(); if (musicOn) bg.play().catch(() => {}); return; }
+  musicOn = false; $("#mus").textContent = "música: no encontrada"; $("#mus").setAttribute("aria-pressed", "false"); mtShow();
+};
+function syncBgm() {
+  const g = $("#servicios"), r = g.getBoundingClientRect(), mid = innerHeight * .45;
+  setBgMode(r.top <= mid && r.bottom >= mid ? "servicios" : "main");
+}
+let bgT = 0;
+addEventListener("scroll", () => { clearTimeout(bgT); bgT = setTimeout(syncBgm, 200); }, { passive: true });
+addEventListener("hashchange", () => setTimeout(syncBgm, 600));
 
-/* Reproductores de Voice Over e Ing. de audio */
-document.addEventListener("play", e => { document.querySelectorAll("audio").forEach(a => { if (a !== e.target) a.pause(); }); }, true);
+/* Reproductores (audio y video) de las muestras */
+document.addEventListener("play", e => { document.querySelectorAll("audio,video").forEach(a => { if (a !== e.target) a.pause(); }); }, true);
+function rolesEl(t) {
+  if (!t.roles || !t.roles.length) return null;
+  const r = document.createElement("div"); r.className = "roles";
+  t.roles.forEach(x => { const sp = document.createElement("span"); sp.className = "role"; sp.textContent = x; r.append(sp); });
+  return r;
+}
 function renderTracks(list, root) {
   list.forEach(t => {
     const box = document.createElement("div"); box.className = "sunk track";
     const h = document.createElement("strong"); h.textContent = t.title;
-    const sm = document.createElement("small"); sm.textContent = t.desc || "";
+    const sm = document.createElement("small"); sm.textContent = [t.desc, t.char ? "Personaje: " + t.char : ""].filter(Boolean).join(" · ");
+    if (t.with) { const w = document.createElement("a"); w.href = t.with.url; w.target = "_blank"; w.rel = "noopener noreferrer"; w.textContent = t.with.label; sm.append(" · con ", w); }
+    const rl = rolesEl(t);
+    const n = document.createElement("p"); n.className = "note";
+    const dl = document.createElement("a"); dl.href = t.file; dl.download = ""; dl.textContent = "descargar";
+    n.append(dl);
+    if (t.video) {
+      const v = document.createElement("video"); v.className = "vid"; v.controls = true; v.preload = "metadata"; v.playsInline = true;
+      v.setAttribute("aria-label", t.title); v.src = encodeURI(t.file) + "#t=0.1";
+      v.onerror = () => why(t.file, m => n.textContent = m);
+      box.append(h, sm); if (rl) box.append(rl); box.append(v, n); root.append(box);
+      return;
+    }
     const a = document.createElement("audio"); a.preload = "none"; a.src = t.file;
     const pl = document.createElement("div"); pl.className = "player";
     const b = document.createElement("button"); b.className = "btn"; b.textContent = "▶ play"; b.setAttribute("aria-label", "Reproducir " + t.title);
@@ -504,21 +844,22 @@ function renderTracks(list, root) {
     pl.append(b, w);
     const pg = document.createElement("div"); pg.className = "prog"; pg.setAttribute("role", "progressbar"); pg.setAttribute("aria-label", "Progreso de " + t.title);
     const pb = document.createElement("div"); pg.append(pb);
-    const n = document.createElement("p"); n.className = "note";
-    const dl = document.createElement("a"); dl.href = t.file; dl.download = ""; dl.textContent = "descargar";
-    n.append(dl);
     b.onclick = () => { if (a.paused) a.play().catch(() => {}); else a.pause(); };
     a.onplay = () => { pl.classList.add("playing"); b.textContent = "❚❚ pausa"; b.setAttribute("aria-label", "Pausar " + t.title); };
     a.onpause = a.onended = () => { pl.classList.remove("playing"); b.textContent = "▶ play"; b.setAttribute("aria-label", "Reproducir " + t.title); };
     a.ontimeupdate = () => { pb.style.width = (a.currentTime / (a.duration || 1) * 100) + "%"; };
     pg.onclick = e => { if (a.duration) a.currentTime = e.offsetX / e.currentTarget.clientWidth * a.duration; };
     a.onerror = () => why(t.file, m => n.textContent = m);
-    box.append(h, sm, a, pl, pg, n); root.append(box);
+    box.append(h, sm); if (rl) box.append(rl); box.append(a, pl, pg, n); root.append(box);
   });
 }
 renderTracks(CFG.voiceover, $("#tv"));
-renderTracks(CFG.audioeng, $("#ta"));
-renderTracks(CFG.covers, $("#tc"));
+renderTracks(CFG.dubs, $("#td"));
+CFG.portfolio.forEach(g => {
+  const h = document.createElement("h4"); h.className = "gh"; h.textContent = g.group;
+  const w = document.createElement("div"); w.className = "tracks";
+  $("#pm").append(h, w); renderTracks(g.items, w);
+});
 
 /* Contacto */
 const ml = $("#ml"); ml.href = "mailto:" + CFG.email; ml.textContent = CFG.email;
@@ -555,6 +896,218 @@ function host(u) { try { return new URL(u).hostname.replace("www.", ""); } catch
     } else holder.append(r);
     root.append(el);
   });
+})();
+
+/* ===== SERVICIOS: oferta, cómo contratar, paquetes, cotizador, formulario, condiciones ===== */
+(function () {
+  const S = CFG.services, L = S.launch, promo = !!L.active;
+  const mk = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const lo = p => Array.isArray(p) ? p[0] : p, hi = p => Array.isArray(p) ? p[1] : p;
+  const fmt = n => "$" + Math.round(n).toLocaleString("es-MX");
+  const rng = (a, b) => Math.round(a) === Math.round(b) ? fmt(a) : fmt(a) + " – " + fmt(b);
+  const usd = n => Math.round(n / S.mxnPerUsd);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const goto = sel => { const e = $(sel); if (e) e.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); };
+  const ext = (a, u) => { a.href = u; a.target = "_blank"; a.rel = "noopener noreferrer"; };
+
+  /* catálogo plano: id → elemento */
+  const cat = {};
+  S.packages.forEach(p => cat[p.id] = { ...p, kind: "pkg", scope: "Paquete" });
+  S.groups.forEach(g => g.items.forEach(i => cat[i.id] = { ...i, kind: "svc" }));
+  S.extras.forEach(x => cat[x.id] = { ...x, kind: "ext", scope: x.unit || "" });
+  const qty = {}, oth = new Set();
+
+  /* ---- oferta de lanzamiento ---- */
+  const offer = $("#offer");
+  if (promo) {
+    const b = mk("b", "", "★ Oferta de lanzamiento: " + L.pct + "% de descuento");
+    offer.append(b, document.createTextNode(" para los primeros " + L.spots + " clientes, en los servicios y paquetes de su primer proyecto."));
+    const d = mk("details"); d.append(mk("summary", "", "ver condiciones de la oferta"), mk("p", "", L.terms));
+    offer.append(d);
+  } else { offer.hidden = true; $("#ncl").hidden = true; $("#nc").checked = false; }
+
+  /* ---- cómo contratar ---- */
+  const hire = $("#hire");
+  const p1 = mk("p"); p1.append(mk("strong", "", "Para contratar mis servicios, mándame un mensaje directo a mis redes o escríbeme por correo."),
+    document.createTextNode(" También puedes llenar el formulario de más abajo y me llega directo al correo."));
+  hire.append(p1);
+  const bd2 = mk("div", "badges");
+  CFG.links.filter(l => l.dm).forEach(l => {
+    const e = mk(l.url ? "a" : "span", "b88", l.text ? l.label + ": " + l.text : l.label + " (DM)");
+    if (l.url) ext(e, l.url);
+    bd2.append(e);
+  });
+  hire.append(bd2);
+  const p2 = mk("p"); const ma = mk("a", "", CFG.email); ma.href = "mailto:" + CFG.email;
+  const cb = mk("button", "btn", "copiar correo"); cb.type = "button";
+  const cm = mk("span", "note", "");
+  cb.onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(CFG.email) : Promise.reject()).then(() => cm.textContent = " copiado", () => cm.textContent = " cópialo manualmente"); };
+  const fl = mk("a", "btn", "ir al formulario ▾"); fl.href = "#contratar";
+  p2.append(document.createTextNode("Correo: "), ma, document.createTextNode(" "), cb, document.createTextNode(" "), fl, cm);
+  hire.append(p2);
+
+  /* ---- paquetes ---- */
+  S.packages.forEach(p => {
+    const c = mk("div", "sunk pkg");
+    if (promo) c.append(mk("span", "tag", "-" + L.pct + "% lanzamiento"));
+    c.append(mk("h3", "", p.name));
+    const pr = mk("div", "pr");
+    if (promo) pr.append(mk("span", "old", fmt(p.mxn)));
+    pr.append(mk("span", "big", fmt(promo ? p.mxn * (1 - L.pct / 100) : p.mxn) + " MXN"));
+    pr.append(mk("span", "us", "≈ US$ " + (promo ? p.usdLaunch : p.usd)));
+    c.append(pr);
+    const ul = mk("ul"); p.incl.forEach(x => ul.append(mk("li", "", x))); c.append(ul);
+    c.append(mk("p", "nt", "No incluye / requisitos: " + p.note));
+    const b = mk("button", "btn", "agregar a mi cotización"); b.type = "button";
+    b.onclick = () => { qty[p.id] = Math.max(qty[p.id] || 0, 1); sync(); $("#qm").textContent = p.name + " agregado."; goto("#cotizador"); };
+    c.append(b);
+    $("#pk").append(c);
+  });
+
+  /* ---- cotizador: lista ---- */
+  const rows = {};
+  function setQ(id, d) {
+    const q = Math.max(0, Math.min(20, (qty[id] || 0) + d)); qty[id] = q; sync();
+  }
+  function priceTxt(it) { return (it.from ? "desde " : "") + rng(lo(it.mxn), hi(it.mxn)); }
+  function group(title, items, note) {
+    const g = mk("div", "pgrp"); g.append(mk("h3", "pg3", title));
+    const ul = mk("ul", "prows");
+    items.forEach(it => {
+      const li = mk("li", "prow"), pi = mk("div", "pi");
+      pi.append(mk("strong", "", it.name), mk("small", "", it.scope || ""));
+      const pq = mk("div", "pq"); pq.append(mk("b", "", priceTxt(it)));
+      if (it.usd) pq.append(mk("small", "", "≈ US$ " + it.usd));
+      else if (it.unit) pq.append(mk("small", "", it.unit));
+      const qt = mk("div", "qt"), m = mk("button", "btn", "−"), o = mk("output", "", "0"), a = mk("button", "btn", "+");
+      m.type = a.type = "button"; m.setAttribute("aria-label", "Quitar uno: " + it.name); a.setAttribute("aria-label", "Agregar uno: " + it.name);
+      m.onclick = () => setQ(it.id, -1); a.onclick = () => setQ(it.id, 1);
+      qt.append(m, o, a); li.append(pi, pq, qt); ul.append(li);
+      rows[it.id] = { li, o };
+    });
+    g.append(ul); if (note) g.append(mk("p", "pnote", note));
+    return g;
+  }
+  const czl = $("#czl");
+  czl.append(group("Paquetes", S.packages.map(p => cat[p.id]), "Los paquetes ya incluyen sus piezas: no los combines con los mismos servicios sueltos."));
+  S.groups.forEach(g => czl.append(group(g.title, g.items.map(i => cat[i.id]), g.note)));
+  czl.append(group("Adicionales", S.extras.map(x => cat[x.id]), S.extrasNote));
+  /* servicios que se cotizan caso por caso */
+  const og = mk("div", "pgrp"); og.append(mk("h3", "pg3", "Otros servicios (a cotizar)"));
+  const ch = mk("div", "chips");
+  S.others.concat(S.quoteOnly).forEach(n => {
+    const c = mk("button", "chip", n); c.type = "button"; c.setAttribute("aria-pressed", "false");
+    c.onclick = () => { if (oth.has(n)) oth.delete(n); else oth.add(n); c.setAttribute("aria-pressed", oth.has(n)); sync(); };
+    ch.append(c);
+  });
+  og.append(ch, mk("p", "pnote", S.othersNote + " " + S.quoteInfo));
+  czl.append(og);
+  if (promo) $("#ncl span").textContent = "Soy de los primeros " + L.spots + " clientes: aplicar el " + L.pct + "% de lanzamiento a paquetes y servicios (no a adicionales ni recargos).";
+
+  /* ---- cotizador: cálculo y resumen ---- */
+  function calc() {
+    let rl = 0, rh = 0, dl = 0, dh = 0; const lines = [];
+    Object.keys(cat).forEach(id => {
+      const q = qty[id] || 0; if (!q) return;
+      const it = cat[id], a = lo(it.mxn) * q, b = hi(it.mxn) * q;
+      rl += a; rh += b; if (it.kind !== "ext") { dl += a; dh += b; }
+      lines.push({ it, q, a, b });
+    });
+    const k = promo && $("#nc").checked ? L.pct / 100 : 0;
+    const u = $("#ur").checked ? [S.urgent.min / 100, S.urgent.max / 100] : [0, 0];
+    const dsc = [dl * k, dh * k], urg = [rl * u[0], rh * u[1]];
+    return { lines, rl, rh, dsc, urg, k, urgent: u[1] > 0, from: lines.some(l => l.it.from || l.a !== l.b) || u[1] > 0,
+      tl: rl - dsc[0] + urg[0], th: rh - dsc[1] + urg[1], oth: [...oth] };
+  }
+  const nm = l => l.q + "× " + l.it.name + (l.it.kind === "pkg" ? "" : l.it.scope && l.it.kind === "svc" ? " (" + l.it.scope + ")" : "");
+  const lp = l => (l.it.from ? "desde " : "") + rng(l.a, l.b);
+  function quoteText(c) {
+    if (!c.lines.length && !c.oth.length) return "";
+    const t = ["COTIZACIÓN PRELIMINAR (precios en MXN)"];
+    c.lines.forEach(l => t.push("• " + nm(l) + ": " + lp(l)));
+    if (c.oth.length) t.push("• A cotizar: " + c.oth.join(", "));
+    if (c.lines.length) {
+      t.push("Subtotal regular: " + rng(c.rl, c.rh));
+      if (c.k) t.push("Descuento de lanzamiento (" + L.pct + "%): -" + rng(c.dsc[0], c.dsc[1]));
+      if (c.urgent) t.push("Recargo por entrega urgente (" + S.urgent.min + "–" + S.urgent.max + "%): +" + rng(c.urg[0], c.urg[1]));
+      t.push("Total estimado: " + (c.from ? "desde " : "") + rng(c.tl, c.th) + " MXN (≈ US$ " + usd(c.tl) + (usd(c.th) !== usd(c.tl) ? "–" + usd(c.th) : "") + ")");
+    }
+    t.push("Estimación orientativa: el monto final queda en la cotización aceptada por escrito.");
+    return t.join("\n");
+  }
+  function sync() {
+    Object.keys(rows).forEach(id => { const q = qty[id] || 0; rows[id].o.value = q; rows[id].li.classList.toggle("on", q > 0); });
+    const c = calc(), box = $("#sl"); box.textContent = "";
+    if (!c.lines.length && !c.oth.length) {
+      box.append(mk("p", "empty", "Aún no hay nada. Agrega paquetes o servicios con el botón + para armar tu cotización."));
+    } else {
+      const ul = mk("ul");
+      const li = (cls, a, b) => { const e = mk("li", cls); e.append(mk("span", "", a), mk("span", "", b)); ul.append(e); };
+      c.lines.forEach(l => li("", nm(l), lp(l)));
+      if (c.oth.length) li("", "A cotizar", c.oth.join(", "));
+      if (c.lines.length) {
+        li("sub", "Subtotal regular", rng(c.rl, c.rh));
+        if (c.k) li("dsc", "Lanzamiento −" + L.pct + "%", "−" + rng(c.dsc[0], c.dsc[1]));
+        if (c.urgent) li("", "Entrega urgente", "+" + rng(c.urg[0], c.urg[1]));
+        li("tot", "Total estimado", (c.from ? "desde " : "") + rng(c.tl, c.th));
+      }
+      box.append(ul);
+      if (c.lines.length) box.append(mk("div", "usd", "≈ US$ " + usd(c.tl) + (usd(c.th) !== usd(c.tl) ? " – " + usd(c.th) : "") + " · MXN a $" + S.mxnPerUsd + " por USD"));
+    }
+    $("#cq").value = quoteText(c);
+  }
+  $("#nc").onchange = $("#ur").onchange = sync;
+  $("#qs").onclick = () => { goto("#contratar"); setTimeout(() => $("#f-name").focus({ preventScroll: true }), 500); };
+  $("#qc").onclick = () => {
+    const t = $("#cq").value; if (!t) { $("#qm").textContent = "Aún no hay cotización que copiar."; return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => $("#qm").textContent = "Texto copiado: pégalo en un DM o correo.", () => { $("#qm").textContent = "No pude copiar solo; selecciona el texto en el formulario."; });
+  };
+  $("#qx").onclick = () => { Object.keys(qty).forEach(k => delete qty[k]); oth.clear(); czl.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", "false")); $("#ur").checked = false; sync(); $("#qm").textContent = "Cotización vaciada."; };
+  sync();
+
+  /* ---- formulario → correo (FormSubmit) con respaldo por mailto ---- */
+  const form = $("#cf"), fmsg = $("#fmsg"), fsend = $("#fsend");
+  const lab = { name: "Nombre", email: "Correo", contacto: "Red social / Discord", proyecto: "Proyecto", descripcion: "Descripción", enlace: "Enlace", uso: "Uso previsto", fecha: "Plazo deseado", cotizacion: "Cotización preliminar" };
+  const plain = d => Object.keys(lab).filter(k => d[k]).map(k => lab[k] + ": " + d[k]).join("\n");
+  function fallback(d, why) {
+    fmsg.className = "fmsg err"; fmsg.textContent = "No pude enviarlo desde la página" + (why ? " (" + why + ")" : "") + ". Puedes mandarlo desde tu correo: ";
+    const a = mk("a", "btn", "abrir mi correo ▸");
+    a.href = "mailto:" + CFG.email + "?subject=" + encodeURIComponent("Solicitud de servicio — " + (d.proyecto || d.name || "")) + "&body=" + encodeURIComponent(plain(d).slice(0, 1800));
+    fmsg.append(a);
+  }
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries());
+    if (d._honey) { fmsg.className = "fmsg ok"; fmsg.textContent = "Enviado."; return; }
+    delete d._honey;
+    fsend.disabled = true; fmsg.className = "fmsg"; fmsg.textContent = "Enviando…";
+    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 15000);
+    try {
+      const r = await fetch("https://formsubmit.co/ajax/" + (CFG.formId || CFG.email), {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, signal: ctl.signal,
+        body: JSON.stringify({ ...d, _subject: "Solicitud de servicio — " + (d.proyecto || d.name), _template: "table", _captcha: "false" })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && (j.success === true || j.success === "true")) {
+        form.reset(); sync();
+        fmsg.className = "fmsg ok"; fmsg.textContent = "¡Listo! Tu solicitud llegó a mi correo. Te responderé lo antes posible.";
+      } else throw new Error(typeof j.message === "string" ? j.message.slice(0, 80) : "");
+    } catch (err) { fallback(d, err.name === "AbortError" ? "tardó demasiado" : err.message); }
+    finally { clearTimeout(to); fsend.disabled = false; }
+  });
+
+  /* ---- condiciones ---- */
+  const C = CFG.conditions, cond = $("#cond");
+  function det(title, open, fill) {
+    const d = mk("details"); if (open) d.open = true;
+    d.append(mk("summary", "", title)); const b = mk("div", "dc"); fill(b); d.append(b); cond.append(d);
+  }
+  det("Pagos, entregas y revisiones", true, b => C.basics.forEach(([k, v]) => { const p = mk("p"); p.append(mk("strong", "", k + ". "), document.createTextNode(v)); b.append(p); }));
+  det("Aclaraciones de alcance", false, b => {
+    b.append(mk("p", "", C.clarifyIntro));
+    C.clarify.forEach(([t, ps]) => { b.append(mk("h4", "gh", t)); ps.forEach(x => b.append(mk("p", "", x))); });
+  });
+  if (promo) det("Oferta de lanzamiento (" + L.pct + "%)", false, b => b.append(mk("p", "", L.terms)));
 })();
 
 /* Setup y redes */
